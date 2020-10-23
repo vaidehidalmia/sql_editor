@@ -5,7 +5,8 @@ import Grid from "@material-ui/core/Grid";
 import Header from "./Header";
 
 import { mockChips } from "./data/mockData";
-import ChipsBox from "./ChipsBox";
+// import ChipsBox from "./ChipsBox";
+import FilterRow from "./FilterRow";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -20,15 +21,24 @@ const useStyles = makeStyles((theme) => ({
 
 const MainContainer = () => {
   const classes = useStyles();
-  const [filters, setFilters] = useState(mockChips);
+  const [query, setQuery] = useState({
+    filters: mockChips,
+    groupby: mockChips,
+    aggregateBy: mockChips,
+  });
 
-  const handleChipsDelete = (value) => {
-    const newList = filters.filter((item) => item !== value);
-    setFilters(newList);
+  const handleChipsAdd = async (value, listName) => {
+    const newList = [...query[listName], value];
+    setQuery({ ...query, [listName]: newList });
   };
 
-  const handleChipsDeleteAll = (value) => {
-    setFilters([]);
+  const handleChipsDelete = (value, listName) => {
+    const newList = query[listName].filter((item) => item !== value);
+    setQuery({ ...query, [listName]: newList });
+  };
+
+  const handleChipsDeleteAll = (listName) => {
+    setQuery({ ...query, [listName]: [] });
   };
 
   return (
@@ -40,16 +50,17 @@ const MainContainer = () => {
         <Grid item xs={12}>
           <Header />
         </Grid>
-        <Grid item xs={12} sm={4}>
+        <Grid item sm={12} md={4}>
           <Paper className={classes.paper}>
-            <ChipsBox
-              chipList={filters}
+            <FilterRow
+              chipList={query.filters}
               handleDelete={handleChipsDelete}
               handleDeleteAll={handleChipsDeleteAll}
+              handleAdd={handleChipsAdd}
             />
           </Paper>
         </Grid>
-        <Grid item xs={12} sm={8}>
+        <Grid item sm={12} md={8}>
           <Paper className={classes.paper}>xs=12 sm=8</Paper>
         </Grid>
       </Grid>

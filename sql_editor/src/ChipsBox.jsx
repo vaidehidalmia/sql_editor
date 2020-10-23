@@ -25,11 +25,11 @@ const ChipsBox = (props) => {
   const classes = useStyles();
 
   const handleDelete = (text) => {
-    props.handleDelete(text);
+    props.handleDelete(text, props.queryType);
   };
 
   const handleDeleteAll = () => {
-    props.handleDeleteAll();
+    props.handleDeleteAll(props.queryType);
   };
 
   return (
