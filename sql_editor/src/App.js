@@ -1,12 +1,12 @@
 import React from "react";
 // import logo from "./logo.svg";
 // import "./App.css";
-import Main_Container from "./Main_Container";
+import MainContainer from "./MainContainer";
 
 function App() {
   return (
     <div className="main-container">
-      <Main_Container />
+      <MainContainer />
     </div>
   );
 }
