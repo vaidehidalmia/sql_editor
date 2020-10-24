@@ -5,12 +5,12 @@ import Grid from "@material-ui/core/Grid";
 import Header from "./Header";
 
 import { mockChips, savedQueries } from "./data/mockData";
-// import ChipsBox from "./ChipsBox";
 import FilterBy from "./FilterBy";
 import GroupBy from "./GroupBy";
 import AggregateBy from "./AggregateBy";
 import ClickableCards from "./ClickableCards";
 import TableBar from "./TableBar";
+import TableExample from "./TableExample";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -90,7 +90,9 @@ const MainContainer = () => {
         </Grid>
         <Grid item sm={12} md={8}>
           {/* <Header /> */}
+          <h2>Customers</h2>
           <TableBar />
+          <TableExample />
           {/* <Paper className={classes.paper}>xs=12 sm=8</Paper> */}
         </Grid>
       </Grid>
