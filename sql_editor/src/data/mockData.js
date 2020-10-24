@@ -114,3 +114,24 @@ export const top100Films = [
   "3 Idiots",
   "Monty Python and the Holy Grail",
 ];
+
+export const savedQueries = [
+  {
+    title: "Customer Country Count",
+    description: "Number of customers for each country.",
+    query: {
+      filters: ["country = India"],
+      groupBy: ["country"],
+      aggregateBy: ["count of country"],
+    },
+  },
+  {
+    title: "Customer Contact Title Count",
+    description: "Number of customers for each contact title.",
+    query: {
+      filters: [],
+      groupBy: ["contactTitle"],
+      aggregateBy: ["count of contactTitle"],
+    },
+  },
+];

@@ -15,6 +15,7 @@ const useStyles = makeStyles((theme) => ({
   button: {
     textTransform: "none",
     paddingBottom: 0,
+    fontSize: "0.75rem",
   },
   chip: {
     borderRadius: 0,

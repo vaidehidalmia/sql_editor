@@ -8,14 +8,14 @@ import { top100Films, operators } from "./data/mockData";
 import ChipsBox from "./ChipsBox";
 
 const FilterRow = (props) => {
+  const queryType = "filters";
   const [filter, setFilter] = useState([null, null, null]);
   const addFilter = async () => {
     if (filter.includes(null)) {
-      console.log(filter);
       console.log("Error");
       return;
     }
-    await props.handleAdd(filter.join(" "), "filters");
+    await props.handleAdd(filter.join(" "), queryType);
     setFilter([null, null, null]);
   };
 
@@ -60,7 +60,7 @@ const FilterRow = (props) => {
           <DoneOutlinedIcon fontSize="small" />
         </IconButton>
       </div>
-      <ChipsBox {...props} queryType="filters" />
+      <ChipsBox {...props} queryType={queryType} />
     </>
   );
 };

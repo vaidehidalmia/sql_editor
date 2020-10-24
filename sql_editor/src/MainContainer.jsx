@@ -4,9 +4,10 @@ import Paper from "@material-ui/core/Paper";
 import Grid from "@material-ui/core/Grid";
 import Header from "./Header";
 
-import { mockChips } from "./data/mockData";
+import { mockChips, savedQueries } from "./data/mockData";
 // import ChipsBox from "./ChipsBox";
 import FilterRow from "./FilterRow";
+import ClickableCards from "./ClickableCards";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -41,6 +42,11 @@ const MainContainer = () => {
     setQuery({ ...query, [listName]: [] });
   };
 
+  const handleSavedQueriesClick = (selectedQuery) => {
+    console.log("Click ", selectedQuery);
+    setQuery(selectedQuery);
+  };
+
   return (
     <div className={classes.root}>
       <Grid container>
@@ -57,6 +63,13 @@ const MainContainer = () => {
               handleDelete={handleChipsDelete}
               handleDeleteAll={handleChipsDeleteAll}
               handleAdd={handleChipsAdd}
+            />
+            <br></br>
+            <div>Saved Queries</div>
+            <ClickableCards
+              cardList={savedQueries}
+              clickDataKey="query"
+              handleClick={handleSavedQueriesClick}
             />
           </Paper>
         </Grid>
