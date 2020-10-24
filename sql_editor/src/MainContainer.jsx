@@ -10,6 +10,7 @@ import FilterBy from "./FilterBy";
 import GroupBy from "./GroupBy";
 import AggregateBy from "./AggregateBy";
 import ClickableCards from "./ClickableCards";
+import TableBar from "./TableBar";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -55,9 +56,9 @@ const MainContainer = () => {
         <Grid item xs={12}>
           <h1>SQL Editor</h1>
         </Grid>
-        <Grid item xs={12}>
+        {/* <Grid item xs={12}>
           <Header />
-        </Grid>
+        </Grid> */}
         <Grid item sm={12} md={4}>
           <Paper className={classes.paper}>
             <FilterBy
@@ -88,7 +89,9 @@ const MainContainer = () => {
           </Paper>
         </Grid>
         <Grid item sm={12} md={8}>
-          <Paper className={classes.paper}>xs=12 sm=8</Paper>
+          {/* <Header /> */}
+          <TableBar />
+          {/* <Paper className={classes.paper}>xs=12 sm=8</Paper> */}
         </Grid>
       </Grid>
     </div>

@@ -2,9 +2,10 @@ import React, { useState } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
+import Button from "@material-ui/core/Button";
 import Typography from "@material-ui/core/Typography";
 
-import { otherTables, downloadAs } from "./data/mockData";
+import { otherTables, downloadAs, reports } from "./data/mockData";
 import SimpleMenu from "./SimpleMenu";
 
 const useStyles = makeStyles((theme) => ({
@@ -14,37 +15,29 @@ const useStyles = makeStyles((theme) => ({
   menuButton: {
     marginRight: theme.spacing(2),
   },
-  title: {
+  rightOfBar: {
     flexGrow: 1,
-    textAlign: "right",
+    // textAlign: "right",
   },
 }));
 
-const Header = () => {
-  const [tableName, setTableName] = useState();
+const TableBar = () => {
   const classes = useStyles();
-
-  const onOtherTablesSelect = (name) => {
-    setTableName(name);
-  };
 
   return (
     <div className={classes.root}>
       <AppBar position="static">
         <Toolbar>
-          <SimpleMenu
-            list={otherTables}
-            label="Other Tables"
-            onMenuItemClick={onOtherTablesSelect}
-          />
-          <SimpleMenu list={downloadAs} label="Export As" />
-          <Typography variant="h5" className={classes.title}>
-            {tableName}
-          </Typography>
+          <Button color="inherit">Save</Button>
+          <SimpleMenu list={downloadAs} label="Download As" />
+          <SimpleMenu list={reports} label="Add to Report" />
+          <div className={classes.rightOfBar} />
+          <SimpleMenu list={otherTables} label="Join Table" />
+          <SimpleMenu list={otherTables} label="Other Tables" />
         </Toolbar>
       </AppBar>
     </div>
   );
 };
 
-export default Header;
+export default TableBar;

@@ -5,13 +5,22 @@ export const otherTables = [
   "Employees",
 ];
 
-export const exportAs = ["CSV", "JSON"];
+export const reports = ["Report 1", "Report 2", "Report 3", "Report 4"];
+
+export const downloadAs = ["CSV", "JSON"];
 
 export const mockChips = ["score > 50", "city = Delhi"];
 
 export const operators = ["=", ">=", ">", "<=", "<", "<>"];
 
-export const aggregateFunctions = ["avg", "count", "sum", "max", "min"];
+export const aggregateFunctions = [
+  "avg",
+  "sum",
+  "count",
+  "unique count",
+  "max",
+  "min",
+];
 
 // Top 100 films as rated by IMDb users. http://www.imdb.com/chart/top
 export const top100Films = [

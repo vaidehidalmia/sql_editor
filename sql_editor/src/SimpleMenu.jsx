@@ -11,11 +11,12 @@ const SimpleMenu = (props) => {
     setAnchorEl(event.currentTarget);
   };
 
-  const handleMenuClose = (element) => {
+  const handleMenuClose = (e) => {
     setAnchorEl(null);
-    if (element) {
-      props.onMenuItemClick(element);
-    }
+    const element = e.target.innerText;
+    // if (element) {
+    //   props.onMenuItemClick(element);
+    // }
   };
 
   return (
@@ -25,6 +26,7 @@ const SimpleMenu = (props) => {
         // aria-haspopup="true"
         onClick={handleButtonClick}
         endIcon={<ExpandMoreOutlinedIcon />}
+        color="inherit"
       >
         {props.label}
       </Button>
@@ -36,7 +38,7 @@ const SimpleMenu = (props) => {
         onClose={handleMenuClose}
       >
         {props.list.map((element) => (
-          <MenuItem key={element} onClick={() => handleMenuClose(element)}>
+          <MenuItem key={element} onClick={handleMenuClose}>
             {element}
           </MenuItem>
         ))}
