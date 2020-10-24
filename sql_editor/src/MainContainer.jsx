@@ -6,7 +6,9 @@ import Header from "./Header";
 
 import { mockChips, savedQueries } from "./data/mockData";
 // import ChipsBox from "./ChipsBox";
-import FilterRow from "./FilterRow";
+import FilterBy from "./FilterBy";
+import GroupBy from "./GroupBy";
+import AggregateBy from "./AggregateBy";
 import ClickableCards from "./ClickableCards";
 
 const useStyles = makeStyles((theme) => ({
@@ -23,8 +25,8 @@ const useStyles = makeStyles((theme) => ({
 const MainContainer = () => {
   const classes = useStyles();
   const [query, setQuery] = useState({
-    filters: mockChips,
-    groupby: mockChips,
+    filterBy: mockChips,
+    groupBy: mockChips,
     aggregateBy: mockChips,
   });
 
@@ -58,8 +60,20 @@ const MainContainer = () => {
         </Grid>
         <Grid item sm={12} md={4}>
           <Paper className={classes.paper}>
-            <FilterRow
-              chipList={query.filters}
+            <FilterBy
+              chipList={query.filterBy}
+              handleDelete={handleChipsDelete}
+              handleDeleteAll={handleChipsDeleteAll}
+              handleAdd={handleChipsAdd}
+            />
+            <GroupBy
+              chipList={query.groupBy}
+              handleDelete={handleChipsDelete}
+              handleDeleteAll={handleChipsDeleteAll}
+              handleAdd={handleChipsAdd}
+            />
+            <AggregateBy
+              chipList={query.aggregateBy}
               handleDelete={handleChipsDelete}
               handleDeleteAll={handleChipsDeleteAll}
               handleAdd={handleChipsAdd}

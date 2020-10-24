@@ -11,6 +11,8 @@ export const mockChips = ["score > 50", "city = Delhi"];
 
 export const operators = ["=", ">=", ">", "<=", "<", "<>"];
 
+export const aggregateFunctions = ["avg", "count", "sum", "max", "min"];
+
 // Top 100 films as rated by IMDb users. http://www.imdb.com/chart/top
 export const top100Films = [
   "The Shawshank Redemption",
@@ -120,7 +122,7 @@ export const savedQueries = [
     title: "Customer Country Count",
     description: "Number of customers for each country.",
     query: {
-      filters: ["country = India"],
+      filterBy: ["country = India"],
       groupBy: ["country"],
       aggregateBy: ["count of country"],
     },
@@ -129,7 +131,7 @@ export const savedQueries = [
     title: "Customer Contact Title Count",
     description: "Number of customers for each contact title.",
     query: {
-      filters: [],
+      filterBy: [],
       groupBy: ["contactTitle"],
       aggregateBy: ["count of contactTitle"],
     },
