@@ -11,12 +11,15 @@ const SimpleMenu = (props) => {
     setAnchorEl(event.currentTarget);
   };
 
-  const handleMenuClose = (e) => {
+  const handleMenuClose = () => {
     setAnchorEl(null);
-    const element = e.target.innerText;
-    // if (element) {
-    //   props.onMenuItemClick(element);
-    // }
+  };
+
+  const handleMenuItemClick = (e) => {
+    handleMenuClose();
+    if (props.handleItemClick) {
+      props.handleItemClick(e);
+    }
   };
 
   return (
@@ -38,7 +41,7 @@ const SimpleMenu = (props) => {
         onClose={handleMenuClose}
       >
         {props.list.map((element) => (
-          <MenuItem key={element} onClick={handleMenuClose}>
+          <MenuItem key={element} onClick={handleMenuItemClick}>
             {element}
           </MenuItem>
         ))}

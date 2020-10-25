@@ -7,6 +7,10 @@ import Typography from "@material-ui/core/Typography";
 
 import { otherTables, downloadAs, reports } from "./data/mockData";
 import SimpleMenu from "./SimpleMenu";
+import SaveTableButton from "./SaveTableButton";
+import DownloadAsButton from "./DownloadAsButton";
+import AddToReportButton from "./AddToReportButton";
+import JoinTableButton from "./JoinTableButton";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -17,7 +21,6 @@ const useStyles = makeStyles((theme) => ({
   },
   rightOfBar: {
     flexGrow: 1,
-    // textAlign: "right",
   },
 }));
 
@@ -28,11 +31,11 @@ const TableBar = () => {
     <div className={classes.root}>
       <AppBar position="static">
         <Toolbar>
-          <Button color="inherit">Save</Button>
-          <SimpleMenu list={downloadAs} label="Download As" />
-          <SimpleMenu list={reports} label="Add to Report" />
+          <SaveTableButton />
+          <DownloadAsButton />
+          <AddToReportButton />
           <div className={classes.rightOfBar} />
-          <SimpleMenu list={otherTables} label="Join Table" />
+          <JoinTableButton currentTable="Customers" />
           <SimpleMenu list={otherTables} label="Other Tables" />
         </Toolbar>
       </AppBar>
