@@ -1,218 +1,203 @@
 // Source: https://codesandbox.io/s/github/tannerlinsley/react-table/tree/master/examples/grouping?from-embed
 
-import React from "react";
-import styled from "styled-components";
-import { useTable, useGroupBy, useExpanded } from "react-table";
+import React, { forwardRef, useRef, useMemo, useEffect } from "react";
+import { useTable, useGroupBy, useExpanded, useSortBy } from "react-table";
+
+import { makeStyles } from "@material-ui/core/styles";
+import Table from "@material-ui/core/Table";
+import TableBody from "@material-ui/core/TableBody";
+import TableCell from "@material-ui/core/TableCell";
+import TableContainer from "@material-ui/core/TableContainer";
+import TableHead from "@material-ui/core/TableHead";
+import TableRow from "@material-ui/core/TableRow";
+import Paper from "@material-ui/core/Paper";
+
+import IconButton from "@material-ui/core/IconButton";
+import KeyboardArrowDownIcon from "@material-ui/icons/KeyboardArrowDown";
+import KeyboardArrowUpIcon from "@material-ui/icons/KeyboardArrowUp";
+
 import customers from "./data/customer_edited.json";
+import getColumns from "./transformData";
 
-import makeData from "./makeData";
-import get_columns from "./transformData";
+const useStyles = makeStyles({
+  tableContainer: {
+    minWidth: 650,
+    maxWidth: "93%",
+    minWidth: "650px",
+    maxHeight: "85vh",
+    overflowX: "scroll",
+    overflowY: "scroll",
+    margin: "30px",
+    border: "1px solid grey",
+  },
+  headerCell: {
+    borderBottom: "1px solid grey",
+    borderRight: "1px solid rgba(224, 224, 224, 1);",
+    fontWeight: "bolder",
+  },
+  groupedByRow: {
+    minWidth: "150px",
+  },
+  cell: {
+    borderRight: "1px solid rgba(224, 224, 224, 1);",
+  },
+});
 
-const Styles = styled.div`
-  padding: 1rem;
+const IndeterminateCheckbox = forwardRef(({ indeterminate, ...rest }, ref) => {
+  const defaultRef = useRef();
+  const resolvedRef = ref || defaultRef;
 
-  table {
-    border-spacing: 0;
-    border: 1px solid black;
+  useEffect(() => {
+    resolvedRef.current.indeterminate = indeterminate;
+  }, [resolvedRef, indeterminate]);
 
-    tr {
-      :last-child {
-        td {
-          border-bottom: 0;
-        }
-      }
-    }
+  return <input type="checkbox" ref={resolvedRef} {...rest} />;
+});
 
-    th,
-    td {
-      margin: 0;
-      padding: 0.5rem;
-      border-bottom: 1px solid black;
-      border-right: 1px solid black;
-
-      :last-child {
-        border-right: 0;
-      }
-    }
-  }
-`;
-
-function Table({ columns, data }) {
+function CustomTable({ columns, data, initialState = {} }) {
   const {
     getTableProps,
     getTableBodyProps,
     headerGroups,
     rows,
     prepareRow,
-    state: { groupBy, expanded },
+    allColumns,
+    getToggleHideAllColumnsProps,
+    state,
   } = useTable(
     {
       columns,
       data,
+      initialState,
     },
     useGroupBy,
+    useSortBy,
     useExpanded
   );
 
   // We don't want to render all of the rows for this example, so cap
   // it at 100 for this use case
   const firstPageRows = rows.slice(0, 100);
+  const classes = useStyles();
 
   return (
     <>
-      <pre>
-        <code>{JSON.stringify({ groupBy, expanded }, null, 2)}</code>
-      </pre>
-      <table {...getTableProps()}>
-        <thead>
-          {headerGroups.map((headerGroup) => (
-            <tr {...headerGroup.getHeaderGroupProps()}>
-              {headerGroup.headers.map((column) => (
-                <th {...column.getHeaderProps()}>
-                  {column.canGroupBy ? (
-                    // If the column can be grouped, let's add a toggle
-                    <span {...column.getGroupByToggleProps()}>
-                      {column.isGrouped ? "🛑 " : "👊 "}
-                    </span>
-                  ) : null}
-                  {column.render("Header")}
-                </th>
-              ))}
-            </tr>
-          ))}
-        </thead>
-        <tbody {...getTableBodyProps()}>
-          {firstPageRows.map((row, i) => {
-            prepareRow(row);
-            return (
-              <tr {...row.getRowProps()}>
-                {row.cells.map((cell) => {
-                  return (
-                    <td>
-                      {cell.isGrouped ? (
-                        // If it's a grouped cell, add an expander and row count
-                        <>
-                          <span {...row.getToggleRowExpandedProps()}>
-                            {row.isExpanded ? "👇" : "👉"}
-                          </span>{" "}
-                          {cell.render("Cell")} ({row.subRows.length})
-                        </>
-                      ) : cell.isAggregated ? (
-                        // If the cell is aggregated, use the Aggregated
-                        // renderer for cell
-                        cell.render("Aggregated")
-                      ) : cell.isPlaceholder ? null : ( // For cells with repeated values, render null
-                        // Otherwise, just render the regular cell
-                        cell.render("Cell")
+      <TableContainer component={Paper} className={classes.tableContainer}>
+        <Table
+          stickyHeader
+          className={classes.table}
+          size="small"
+          aria-label="a dense table"
+          {...getTableProps()}
+        >
+          {/* <table {...getTableProps()}> */}
+          <TableHead>
+            {headerGroups.map((headerGroup) => (
+              <TableRow {...headerGroup.getHeaderGroupProps()}>
+                {headerGroup.headers.map((column) => (
+                  <TableCell
+                    className={`${classes.headerCell} ${
+                      column.isGrouped ? classes.groupedByRow : null
+                    }`}
+                    // className={column.isGrouped ? classes.groupedByRow : null}
+                    // {column.isGrouped && className=classes.groupedByRow}
+                    {...column.getHeaderProps(column.getSortByToggleProps())}
+                  >
+                    {column.canGroupBy ? (
+                      // If the column can be grouped, let's add a toggle
+                      <span {...column.getGroupByToggleProps()}>
+                        {column.isGrouped ? "🛑 " : "👊 "}
+                      </span>
+                    ) : null}
+                    <span>
+                      {column.render("Header")}
+                      {state.groupBy.length > 0 && !column.isGrouped && (
+                        <div>({column.aggregate})</div>
                       )}
-                    </td>
-                  );
-                })}
-              </tr>
-            );
-          })}
-        </tbody>
-      </table>
+                    </span>
+                    <span>
+                      {column.isSorted
+                        ? column.isSortedDesc
+                          ? " 🔽"
+                          : " 🔼"
+                        : ""}
+                    </span>
+                  </TableCell>
+                ))}
+              </TableRow>
+            ))}
+          </TableHead>
+          <TableBody {...getTableBodyProps()}>
+            {firstPageRows.map((row, i) => {
+              prepareRow(row);
+              return (
+                <TableRow {...row.getRowProps()}>
+                  {row.cells.map((cell) => {
+                    return (
+                      <TableCell className={classes.cell}>
+                        {cell.isGrouped ? (
+                          // If it's a grouped cell, add an expander and row count
+                          <>
+                            {cell.render("Cell")} {row.subRows.length}
+                            <span {...row.getToggleRowExpandedProps()}>
+                              <IconButton aria-label="expand row" size="small">
+                                {row.isExpanded ? (
+                                  <KeyboardArrowUpIcon />
+                                ) : (
+                                  <KeyboardArrowDownIcon />
+                                )}
+                              </IconButton>
+                            </span>
+                          </>
+                        ) : cell.isAggregated ? (
+                          // If the cell is aggregated, use the Aggregated
+                          // renderer for cell
+                          cell.render("Aggregated")
+                        ) : cell.isPlaceholder ? null : ( // For cells with repeated values, render null
+                          // Otherwise, just render the regular cell
+                          cell.render("Cell")
+                        )}
+                      </TableCell>
+                    );
+                  })}
+                </TableRow>
+              );
+            })}
+          </TableBody>
+        </Table>
+      </TableContainer>
       <br />
       <div>Showing the first 100 results of {rows.length} rows</div>
+      <pre>
+        <code>{JSON.stringify(state, null, 2)}</code>
+      </pre>
+      <div>
+        <div>
+          <IndeterminateCheckbox {...getToggleHideAllColumnsProps()} /> Toggle
+          All
+        </div>
+        {allColumns.map((column) => (
+          <div key={column.id}>
+            <label>
+              <input type="checkbox" {...column.getToggleHiddenProps()} />{" "}
+              {column.id}
+            </label>
+          </div>
+        ))}
+        <br />
+      </div>
     </>
   );
 }
 
-// This is a custom aggregator that
-// takes in an array of leaf values and
-// returns the rounded median
-function roundedMedian(leafValues) {
-  let min = leafValues[0] || 0;
-  let max = leafValues[0] || 0;
-
-  leafValues.forEach((value) => {
-    min = Math.min(min, value);
-    max = Math.max(max, value);
-  });
-
-  return Math.round((min + max) / 2);
-}
-
 function TableExample() {
-  const columns = React.useMemo(
-    () => get_columns(customers[0]),
-    []
-    // () => [
-    //   {
-    //     Header: "customerID",
-    //     accessor: "customerID",
-    //     aggregate: "count",
-    //     Aggregated: ({ value }) => `${value} Names`,
-    //   },
-    //   {
-    //     Header: "Name",
-    //     columns: [
-    //       {
-    //         Header: "First Name",
-    //         accessor: "firstName",
-    //         // Use a two-stage aggregator here to first
-    //         // count the total rows being aggregated,
-    //         // then sum any of those counts if they are
-    //         // aggregated further
-    //         aggregate: "count",
-    //         Aggregated: ({ value }) => `${value} Names`,
-    //       },
-    //       {
-    //         Header: "Last Name",
-    //         accessor: "lastName",
-    //         // Use another two-stage aggregator here to
-    //         // first count the UNIQUE values from the rows
-    //         // being aggregated, then sum those counts if
-    //         // they are aggregated further
-    //         aggregate: "uniqueCount",
-    //         Aggregated: ({ value }) => `${value} Unique Names`,
-    //       },
-    //     ],
-    //   },
-    //   {
-    //     Header: "Info",
-    //     columns: [
-    //       {
-    //         Header: "Age",
-    //         accessor: "age",
-    //         // Aggregate the average age of visitors
-    //         aggregate: "average",
-    //         Aggregated: ({ value }) => `${Math.round(value * 100) / 100} (avg)`,
-    //       },
-    //       {
-    //         Header: "Visits",
-    //         accessor: "visits",
-    //         // Aggregate the sum of all visits
-    //         aggregate: "sum",
-    //         Aggregated: ({ value }) => `${value} (total)`,
-    //       },
-    //       {
-    //         Header: "Status",
-    //         accessor: "status",
-    //       },
-    //       {
-    //         Header: "Profile Progress",
-    //         accessor: "progress",
-    //         // Use our custom roundedMedian aggregator
-    //         aggregate: roundedMedian,
-    //         Aggregated: ({ value }) => `${value} (med)`,
-    //       },
-    //     ],
-    //   },
-    // ],
-    // []
-  );
-
-  //   const data = React.useMemo(() => makeData(10000), []);
-  const data = React.useMemo(() => customers, []);
+  const columns = useMemo(() => getColumns(customers[0]), []);
+  const data = useMemo(() => customers, []);
+  const is = { groupBy: ["city", "contactTitle"] };
+  const initialState = useMemo(() => is, []);
 
   return (
-    <div>
-      <Styles>
-        <Table columns={columns} data={data} />
-      </Styles>
-    </div>
+    <CustomTable columns={columns} data={data} initialState={initialState} />
   );
 }
 
