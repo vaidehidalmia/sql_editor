@@ -8,7 +8,7 @@ import ButtonBase from "@material-ui/core/ButtonBase";
 const useStyles = makeStyles((theme) => ({
   root: {
     maxWidth: 500,
-    marginBottom: theme.spacing(0.5),
+    marginTop: theme.spacing(0.5),
   },
   cardButton: {
     width: "100%",

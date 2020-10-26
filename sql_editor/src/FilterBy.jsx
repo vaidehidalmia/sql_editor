@@ -7,7 +7,10 @@ import DoneOutlinedIcon from "@material-ui/icons/DoneOutlined";
 import { top100Films, operators } from "./data/mockData";
 import ChipsBox from "./ChipsBox";
 
+import './query.css';
+
 const FilterBy = (props) => {
+
   const queryType = "filterBy";
   const [filter, setFilter] = useState([null, null, null]);
   const addFilter = async () => {
@@ -26,42 +29,41 @@ const FilterBy = (props) => {
   };
 
   return (
-    <>
-      <div>Filter By:</div>
-      <div style={{ display: "flex" }}>
-        <DropdownWithSearch
-          list={top100Films}
-          label="Column List"
-          disableClearable
-          onSelect={(value) => onSelect(value, 0)}
-          value={filter[0]}
-        />
-        <DropdownWithSearch
-          list={operators}
-          label="Op."
-          width={100}
-          disableClearable
-          onSelect={(value) => onSelect(value, 1)}
-          value={filter[1]}
-        />
-        <DropdownWithSearch
-          list={top100Films}
-          label="Value"
-          disableClearable
-          onSelect={(value) => onSelect(value, 2)}
-          value={filter[2]}
-        />
-        <IconButton
-          color="primary"
-          aria-label="remove filter"
-          component="span"
-          onClick={addFilter}
-        >
-          <DoneOutlinedIcon fontSize="small" />
-        </IconButton>
+    <div className="query-container">
+      <div className="query-title" id="filterby-title">Filter By:</div>
+      <div>
+        <div style={{ display: "flex" }}>
+          <DropdownWithSearch
+            list={top100Films}
+            label="Column List"
+            onSelect={(value) => onSelect(value, 0)}
+            value={filter[0]}
+          />
+          <DropdownWithSearch
+            list={operators}
+            label="Op."
+            width={100}
+            onSelect={(value) => onSelect(value, 1)}
+            value={filter[1]}
+          />
+          <DropdownWithSearch
+            list={top100Films}
+            label="Value"
+            onSelect={(value) => onSelect(value, 2)}
+            value={filter[2]}
+          />
+          <IconButton
+            color="primary"
+            aria-label="remove filter"
+            component="span"
+            onClick={addFilter}
+          >
+            <DoneOutlinedIcon fontSize="small" />
+          </IconButton>
+        </div>
+        <ChipsBox {...props} queryType={queryType} />
       </div>
-      <ChipsBox {...props} queryType={queryType} />
-    </>
+    </div>
   );
 };
 

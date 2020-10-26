@@ -8,7 +8,7 @@ import DialogContentText from "@material-ui/core/DialogContentText";
 import DialogTitle from "@material-ui/core/DialogTitle";
 import SimpleMenu from "./SimpleMenu";
 
-import { otherTables, top100Films } from "./data/mockData";
+import { otherTables, top100Films, joinType } from "./data/mockData";
 import DropdownWithSearch from "./DropdownWithSearch";
 
 export default function JoinTableButton(props) {
@@ -18,7 +18,8 @@ export default function JoinTableButton(props) {
   const [joinTableDialogTitle, setJoinTableDialogTitle] = useState();
   const joinTableDialogData = {
     buttonTitle: "Join Table",
-    joinDescription: "Select the columns you want to join on below.",
+    joinDescription:
+      "Select the join type and columns you want to join on below.",
     fileNameDescription:
       "Enter the table name you want to save the joined table as below.",
     submitButtonText: "Join",
@@ -61,6 +62,14 @@ export default function JoinTableButton(props) {
           <DialogContentText>
             {joinTableDialogData.joinDescription}
           </DialogContentText>
+          <DropdownWithSearch
+            list={joinType}
+            label="Join Type"
+            disableClearable
+            onSelect={() => {}}
+            // onSelect={(value) => onSelect(value, 0)}
+            // value={aggregate[0]}
+          />
           <div style={{ display: "flex" }}>
             <DropdownWithSearch
               list={top100Films}

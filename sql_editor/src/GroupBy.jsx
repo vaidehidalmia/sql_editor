@@ -7,6 +7,8 @@ import DoneOutlinedIcon from "@material-ui/icons/DoneOutlined";
 import { top100Films } from "./data/mockData";
 import ChipsBox from "./ChipsBox";
 
+import './query.css';
+
 const GroupBy = (props) => {
   const queryType = "groupBy";
   const [group, setGroup] = useState([null]);
@@ -26,27 +28,28 @@ const GroupBy = (props) => {
   };
 
   return (
-    <>
-      <div>Group By:</div>
-      <div style={{ display: "flex" }}>
-        <DropdownWithSearch
-          list={top100Films}
-          label="Column List"
-          disableClearable
-          onSelect={(value) => onSelect(value, 0)}
-          value={group[0]}
-        />
-        <IconButton
-          color="primary"
-          aria-label="remove group"
-          component="span"
-          onClick={addGroup}
-        >
-          <DoneOutlinedIcon fontSize="small" />
-        </IconButton>
+    <div className="query-container">
+      <div className="query-title" id="groupby-title">Group By:</div>
+      <div>
+        <div style={{ display: "flex" }}>
+          <DropdownWithSearch
+            list={top100Films}
+            label="Column List"
+            onSelect={(value) => onSelect(value, 0)}
+            value={group[0]}
+          />
+          <IconButton
+            color="primary"
+            aria-label="remove group"
+            component="span"
+            onClick={addGroup}
+          >
+            <DoneOutlinedIcon fontSize="small" />
+          </IconButton>
+        </div>
+        <ChipsBox {...props} queryType={queryType} />
       </div>
-      <ChipsBox {...props} queryType={queryType} />
-    </>
+    </div>
   );
 };
 

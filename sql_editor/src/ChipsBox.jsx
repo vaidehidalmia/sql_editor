@@ -5,20 +5,28 @@ import ClearOutlinedIcon from "@material-ui/icons/ClearOutlined";
 import Button from "@material-ui/core/Button";
 
 const useStyles = makeStyles((theme) => ({
-  root: {
+  chipsBox: {
+    border: "1px solid rgba(224, 224, 224, 1)",
+    borderRadius: "5px",
+    marginTop: "10px",
+    minHeight: "20px",
+    maxHeight: "100px",
+    overflowY: "scroll",
+  },
+  chipsContainer: {
     display: "flex",
     flexWrap: "wrap",
     "& > *": {
       margin: theme.spacing(0.5),
     },
   },
-  button: {
+  clearButton: {
     textTransform: "none",
-    paddingBottom: 0,
-    fontSize: "0.75rem",
+    padding: 0,
+    fontSize: "0.5rem",
   },
   chip: {
-    borderRadius: 0,
+    borderRadius: "1px",
   },
 }));
 
@@ -34,17 +42,17 @@ const ChipsBox = (props) => {
   };
 
   return (
-    <>
+    <div className={classes.chipsBox}>
       {props.chipList.length > 0 && (
         <Button
-          className={classes.button}
+          className={classes.clearButton}
           color="secondary"
           onClick={handleDeleteAll}
         >
           Clear All
         </Button>
       )}
-      <div className={classes.root}>
+      <div className={classes.chipsContainer}>
         {props.chipList.map((text) => (
           <Chip
             key={text}
@@ -57,7 +65,7 @@ const ChipsBox = (props) => {
           />
         ))}
       </div>
-    </>
+    </div>
   );
 };
 

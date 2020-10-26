@@ -1,0 +1,27 @@
+.header {
+  background-color: #1d3557;
+  color: white;
+  padding: 5px;
+  border-radius: 5px;
+  font-weight: bold;
+}
+
+#run-query-button {
+  background-color: #65b565;
+  margin: 10px 0;
+  text-transform: initial;
+}
+
+#run-query-button:hover {
+  background-color: #4f8a4f;
+}
+
+#save-query-button {
+  background-color: #6a78c3;
+  margin: 5px 10px;
+  text-transform: initial;
+}
+
+#save-query-button:hover {
+  background-color: #4c578e;
+}

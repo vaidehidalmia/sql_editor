@@ -7,6 +7,8 @@ import DoneOutlinedIcon from "@material-ui/icons/DoneOutlined";
 import { top100Films, aggregateFunctions } from "./data/mockData";
 import ChipsBox from "./ChipsBox";
 
+import './query.css';
+
 const AggregateBy = (props) => {
   const queryType = "aggregateBy";
   const [aggregate, setAggregate] = useState([null, null]);
@@ -26,20 +28,19 @@ const AggregateBy = (props) => {
   };
 
   return (
-    <>
-      <div>Aggregate By:</div>
+    <div className="query-container">
+      <div className="query-title" id="aggregateby-title">Aggregate By:</div>
+      <div>
       <div style={{ display: "flex" }}>
         <DropdownWithSearch
           list={top100Films}
           label="Column List"
-          disableClearable
           onSelect={(value) => onSelect(value, 0)}
           value={aggregate[0]}
         />
         <DropdownWithSearch
           list={aggregateFunctions}
           label="Function"
-          disableClearable
           onSelect={(value) => onSelect(value, 1)}
           value={aggregate[1]}
         />
@@ -53,7 +54,8 @@ const AggregateBy = (props) => {
         </IconButton>
       </div>
       <ChipsBox {...props} queryType={queryType} />
-    </>
+      </div>
+    </div>
   );
 };
 

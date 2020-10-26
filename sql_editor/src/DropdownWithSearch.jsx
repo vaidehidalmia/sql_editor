@@ -13,6 +13,7 @@ const DropdownWithSearch = (props) => {
       renderInput={(params) => <TextField {...params} label={label} />}
       onChange={(event, v) => onSelect(v)}
       value={value}
+      size="small"
     />
   );
 };

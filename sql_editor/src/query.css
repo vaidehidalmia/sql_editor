@@ -1,0 +1,28 @@
+.query-title {
+  color: #1d3557;
+  background: white;
+  margin-top: -20px;
+  font-weight: 600;
+  margin-left: -2px;
+  padding-left: 5px;
+}
+#filterby-title {
+  width: 70px;
+}
+#groupby-title {
+  width: 80px;
+}
+#aggregateby-title {
+  width: 110px;
+}
+
+.query-container {
+  border: 1px solid #1d3557;
+  padding: 10px;
+  border-radius: 5px;
+  margin-top: 20px;
+}
+
+.MuiFormLabel-root {
+  font-size: 15px;
+}

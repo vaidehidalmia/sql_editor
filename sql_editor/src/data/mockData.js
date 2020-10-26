@@ -22,6 +22,8 @@ export const aggregateFunctions = [
   "min",
 ];
 
+export const joinType = ["inner", "left", "right", "full outer"];
+
 // Top 100 films as rated by IMDb users. http://www.imdb.com/chart/top
 export const top100Films = [
   "The Shawshank Redemption",

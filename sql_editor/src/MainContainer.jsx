@@ -12,6 +12,11 @@ import ClickableCards from "./ClickableCards";
 import TableBar from "./TableBar";
 import TableExample from "./TableExample";
 
+import './main.css';
+import { Button } from "@material-ui/core";
+import PlayArrowIcon from '@material-ui/icons/PlayArrow';
+import SaveIcon from '@material-ui/icons/Save';
+
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
@@ -79,13 +84,44 @@ const MainContainer = () => {
               handleDeleteAll={handleChipsDeleteAll}
               handleAdd={handleChipsAdd}
             />
+            <Grid
+              container
+              direction="row"
+              justify="flex-end"
+              alignItems="center"
+            >
+              <Button
+                id="run-query-button"
+                className="text-transform-initial"
+                variant="contained"
+                color="primary"
+                disableElevation
+                size="small"
+                endIcon={<PlayArrowIcon />}
+              >
+                Run Query
+              </Button>
+              <Button
+                id="save-query-button"
+                className="text-transform-initial"
+                variant="contained"
+                color="primary"
+                disableElevation
+                size="small"
+                endIcon={<SaveIcon />}
+              >
+                Save Query
+              </Button>
+            </Grid>
             <br></br>
-            <div>Saved Queries</div>
-            <ClickableCards
-              cardList={savedQueries}
-              clickDataKey="query"
-              handleClick={handleSavedQueriesClick}
-            />
+            <div className="header">Saved Queries</div>
+            <div>
+              <ClickableCards
+                cardList={savedQueries}
+                clickDataKey="query"
+                handleClick={handleSavedQueriesClick}
+              />
+            </div>
           </Paper>
         </Grid>
         <Grid item sm={12} md={8}>
