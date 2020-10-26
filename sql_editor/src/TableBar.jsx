@@ -12,29 +12,25 @@ import DownloadAsButton from "./DownloadAsButton";
 import AddToReportButton from "./AddToReportButton";
 import JoinTableButton from "./JoinTableButton";
 
+import './main.css';
+
 const useStyles = makeStyles((theme) => ({
-  root: {
-    flexGrow: 1,
-  },
-  menuButton: {
-    marginRight: theme.spacing(2),
-  },
-  rightOfBar: {
-    flexGrow: 1,
-  },
+  // menuButton: {
+  //   marginRight: theme.spacing(2),
+  // },
 }));
 
 const TableBar = () => {
   const classes = useStyles();
 
   return (
-    <div className={classes.root}>
-      <AppBar position="static">
+    <div className="flex-grow">
+      <AppBar position="static" id="table-bar">
         <Toolbar>
           <SaveTableButton />
           <DownloadAsButton />
           <AddToReportButton />
-          <div className={classes.rightOfBar} />
+          <div className="flex-grow" />
           <JoinTableButton currentTable="Customers" />
           <SimpleMenu list={otherTables} label="Other Tables" />
         </Toolbar>

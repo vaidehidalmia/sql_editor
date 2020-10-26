@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { makeStyles } from "@material-ui/core/styles";
 import Paper from "@material-ui/core/Paper";
 import Grid from "@material-ui/core/Grid";
 import Header from "./Header";
@@ -17,19 +16,8 @@ import { Button } from "@material-ui/core";
 import PlayArrowIcon from '@material-ui/icons/PlayArrow';
 import SaveIcon from '@material-ui/icons/Save';
 
-const useStyles = makeStyles((theme) => ({
-  root: {
-    flexGrow: 1,
-  },
-  paper: {
-    padding: theme.spacing(2),
-    // textAlign: "center",
-    color: theme.palette.text.secondary,
-  },
-}));
 
 const MainContainer = () => {
-  const classes = useStyles();
   const [query, setQuery] = useState({
     filterBy: mockChips,
     groupBy: mockChips,
@@ -56,16 +44,13 @@ const MainContainer = () => {
   };
 
   return (
-    <div className={classes.root}>
+    <div className="flex-grow">
       <Grid container>
-        <Grid item xs={12}>
-          <h1>SQL Editor</h1>
-        </Grid>
         {/* <Grid item xs={12}>
-          <Header />
+          <h1>SQL Editor</h1>
         </Grid> */}
         <Grid item sm={12} md={4}>
-          <Paper className={classes.paper}>
+          <Paper className="paper">
             <FilterBy
               chipList={query.filterBy}
               handleDelete={handleChipsDelete}
@@ -114,7 +99,7 @@ const MainContainer = () => {
               </Button>
             </Grid>
             <br></br>
-            <div className="header">Saved Queries</div>
+            <div className="header bold">Saved Queries</div>
             <div>
               <ClickableCards
                 cardList={savedQueries}
@@ -126,7 +111,10 @@ const MainContainer = () => {
         </Grid>
         <Grid item sm={12} md={8}>
           {/* <Header /> */}
-          <h2>Customers</h2>
+          <div className="text-center header">
+            <h2 className="margin2">Customers</h2>
+            <div className="fontsize07"><span className="bold">100</span> rows <span className="bold">20</span> columns</div>
+          </div>
           <TableBar />
           <TableExample />
           {/* <Paper className={classes.paper}>xs=12 sm=8</Paper> */}

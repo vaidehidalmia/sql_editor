@@ -1,9 +1,32 @@
+.text-center {
+  text-align: center;
+}
+
+.bold {
+  font-weight: bold;
+}
+
+.margin2 {
+  margin: 2px;
+}
+
+.fontsize07 {
+  font-size: 0.7rem;
+}
+
 .header {
   background-color: #1d3557;
   color: white;
   padding: 5px;
-  border-radius: 5px;
-  font-weight: bold;
+  margin: 0;
+}
+
+.paper {
+  padding: 16px;
+}
+
+.flex-grow {
+  flex-grow: 1;
 }
 
 #run-query-button {
@@ -24,4 +47,14 @@
 
 #save-query-button:hover {
   background-color: #4c578e;
+}
+
+#table-bar {
+  background-color: white;
+  color: #1d3557;
+  box-shadow: 0;
+}
+
+.MuiButton-iconSizeMedium {
+  margin-left: 0px !important;
 }
