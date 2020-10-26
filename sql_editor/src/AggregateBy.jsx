@@ -31,29 +31,30 @@ const AggregateBy = (props) => {
     <div className="query-container">
       <div className="query-title" id="aggregateby-title">Aggregate By:</div>
       <div>
-      <div style={{ display: "flex" }}>
-        <DropdownWithSearch
-          list={top100Films}
-          label="Column List"
-          onSelect={(value) => onSelect(value, 0)}
-          value={aggregate[0]}
-        />
-        <DropdownWithSearch
-          list={aggregateFunctions}
-          label="Function"
-          onSelect={(value) => onSelect(value, 1)}
-          value={aggregate[1]}
-        />
-        <IconButton
-          color="primary"
-          aria-label="remove aggregate"
-          component="span"
-          onClick={addAggregate}
-        >
-          <DoneOutlinedIcon fontSize="small" />
-        </IconButton>
-      </div>
-      <ChipsBox {...props} queryType={queryType} />
+        <div className="fontsize07 margin2">Columns are aggregated by <span className="bold">count by default</span></div>
+        <div style={{ display: "flex" }}>
+          <DropdownWithSearch
+            list={top100Films}
+            label="Column List"
+            onSelect={(value) => onSelect(value, 0)}
+            value={aggregate[0]}
+          />
+          <DropdownWithSearch
+            list={aggregateFunctions}
+            label="Function"
+            onSelect={(value) => onSelect(value, 1)}
+            value={aggregate[1]}
+          />
+          <IconButton
+            color="primary"
+            aria-label="remove aggregate"
+            component="span"
+            onClick={addAggregate}
+          >
+            <DoneOutlinedIcon fontSize="small" />
+          </IconButton>
+        </div>
+        <ChipsBox {...props} queryType={queryType} />
       </div>
     </div>
   );

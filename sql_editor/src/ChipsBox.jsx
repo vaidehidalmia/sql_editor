@@ -27,6 +27,9 @@ const useStyles = makeStyles((theme) => ({
   },
   chip: {
     borderRadius: "1px",
+    backgroundColor: "#eff4f9",
+    color: "#1d3557",
+    fontWeight: "600",
   },
 }));
 

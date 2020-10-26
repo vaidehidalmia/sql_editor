@@ -15,6 +15,7 @@ import './main.css';
 import { Button } from "@material-ui/core";
 import PlayArrowIcon from '@material-ui/icons/PlayArrow';
 import SaveIcon from '@material-ui/icons/Save';
+import QueryTabs from "./QueryTabs";
 
 
 const MainContainer = () => {
@@ -51,24 +52,11 @@ const MainContainer = () => {
         </Grid> */}
         <Grid item sm={12} md={4}>
           <Paper className="paper">
-            <FilterBy
-              chipList={query.filterBy}
-              handleDelete={handleChipsDelete}
-              handleDeleteAll={handleChipsDeleteAll}
-              handleAdd={handleChipsAdd}
-            />
-            <GroupBy
-              chipList={query.groupBy}
-              handleDelete={handleChipsDelete}
-              handleDeleteAll={handleChipsDeleteAll}
-              handleAdd={handleChipsAdd}
-            />
-            <AggregateBy
-              chipList={query.aggregateBy}
-              handleDelete={handleChipsDelete}
-              handleDeleteAll={handleChipsDeleteAll}
-              handleAdd={handleChipsAdd}
-            />
+            <QueryTabs 
+              query={query}
+              handleChipsAdd={handleChipsAdd}
+              handleChipsDelete={handleChipsDelete}
+              handleChipsDeleteAll={handleChipsDeleteAll}/>
             <Grid
               container
               direction="row"
