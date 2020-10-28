@@ -25,7 +25,7 @@ const useStyles = makeStyles({
   tableContainer: {
     maxWidth: "96%",
     minWidth: "650px",
-    maxHeight: "85vh",
+    maxHeight: "585px",
     overflowX: "scroll",
     overflowY: "scroll",
     margin: "20px",

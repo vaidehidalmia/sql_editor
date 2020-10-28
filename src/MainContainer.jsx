@@ -13,6 +13,7 @@ import { savedQueries, tableMetaData } from "./data/mockData";
 import customers from "./data/customer_edited.json";
 import products from "./data/products.json";
 import categories from "./data/categories.json";
+import products_edited from "./data/products_edited.json";
 
 import './main.css';
 
@@ -83,6 +84,10 @@ const MainContainer = () => {
 
   // handles run query
   const handleRunQuery = () => {
+    //FIXME: hard coded data to showcase filter function
+    if (query.filterBy.includes("categoryID = 2")) {
+      setTableData(products_edited);
+    }
     setSubmitQuery(query);
   }
 

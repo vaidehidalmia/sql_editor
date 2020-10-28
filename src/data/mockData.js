@@ -196,6 +196,15 @@ export const savedQueries = {
         groupBy: ["supplierID"],
         aggregateBy: ["Avg of unitPrice"],
       },
+    },
+    {
+      title: "Show all condiment products",
+      description: "Filtered by categoryID = 2",
+      query: {
+        filterBy: ["categoryID = 2"],
+        groupBy: [],
+        aggregateBy: [],
+      },
     }
   ],
   "categories": [],
