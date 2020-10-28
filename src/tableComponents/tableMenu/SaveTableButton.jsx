@@ -1,10 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import { Button, TextField, Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle} from "@material-ui/core";
+import SaveIcon from '@material-ui/icons/Save';
 
 // user can input the table name they want to save the table as
 // opens a dialog on button click
 export default function SaveTableButton() {
-  const [open, setOpen] = React.useState(false);
+  const [open, setOpen] = useState(false);
   
   const saveDialogData = {
     buttonTitle: "Save",

@@ -7,10 +7,11 @@ import DownloadAsButton from "./DownloadAsButton";
 import AddToReportButton from "./AddToReportButton";
 import JoinTableButton from "./JoinTableButton";
 
-import { tableMetaData } from "../../data/mockData";
+import { otherTables } from "../../data/mockData";
 
 
 const TableBar = (props) => {
+  const { tableId, handleOtherTablesItemClick } = props;
 
   return (
     <div className="flex-grow">
@@ -20,8 +21,8 @@ const TableBar = (props) => {
           <DownloadAsButton />
           <AddToReportButton />
           <div className="flex-grow" />
-          <JoinTableButton currentTable={props.tableId} />
-          <SimpleMenu list={Object.keys(tableMetaData)} label="Other Tables" handleItemClick={props.handleOtherTablesItemClick}/>
+          <JoinTableButton currentTable={tableId} />
+          <SimpleMenu list={otherTables.filter(e => e !== tableId)} label="Other Tables" handleItemClick={handleOtherTablesItemClick}/>
         </Toolbar>
       </AppBar>
     </div>

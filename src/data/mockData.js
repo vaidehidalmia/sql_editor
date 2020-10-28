@@ -1,6 +1,7 @@
 export const otherTables = [
   "customers",
   "products",
+  "categories",
 ];
 
 export const tableMetaData = {
@@ -39,6 +40,17 @@ export const tableMetaData = {
       "discontinued",
       "name",
     ]
+  },
+  categories: {
+    title: "Categories",
+    fileName: "categories.json",
+    rows: 8,
+    columns: 3,
+    columnList: [
+      "categoryId",
+      "name",
+      "description",
+    ]
   }
 }
 
@@ -57,7 +69,7 @@ export const aggregateFunctions = [
   "Unique Count",
 ];
 
-export const joinType = ["inner", "left", "right", "full outer"];
+export const joinType = ["Inner", "Left", "Right", "Full Outer"];
 
 // Top 100 films as rated by IMDb users. http://www.imdb.com/chart/top
 export const top100Films = [
@@ -206,4 +218,5 @@ export const savedQueries = {
     },
   ],
   "products": [],
+  "categories": [],
 }

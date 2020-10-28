@@ -48,7 +48,7 @@ export default function JoinTableButton(props) {
   return (
     <div>
       <SimpleMenu
-        list={otherTables}
+        list={otherTables.filter(e => e !== currentTable)}
         label={joinTableDialogData.buttonTitle}
         handleItemClick={handleItemClick}
       />
@@ -59,9 +59,9 @@ export default function JoinTableButton(props) {
       >
         <DialogTitle id="form-dialog-title">{joinTableDialogTitle}</DialogTitle>
         <DialogContent>
-          <DialogContentText>
+          {/* <DialogContentText>
             {joinTableDialogData.joinDescription}
-          </DialogContentText>
+          </DialogContentText> */}
           <DropdownWithSearch
             list={joinType}
             label="Join Type"
@@ -88,16 +88,16 @@ export default function JoinTableButton(props) {
               // value={aggregate[1]}
             />
           </div>
-          <DialogContentText>
+          {/* <DialogContentText>
             {joinTableDialogData.fileNameDescription}
-          </DialogContentText>
+          </DialogContentText> */}
           <TextField
-            autoFocus
             margin="dense"
             id={joinTableDialogData.fieldData.id}
             label={joinTableDialogData.fieldData.label}
             type={joinTableDialogData.fieldData.type}
             fullWidth
+            required
           />
         </DialogContent>
         <DialogActions>

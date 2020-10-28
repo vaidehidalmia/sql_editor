@@ -7,12 +7,15 @@ import ClickableCards from "./genericComponents/ClickableCards";
 import QueryTabs from "./queryComponents/QueryTabs";
 import TableBar from "./tableComponents/tableMenu/TableBar";
 import TableExample from "./tableComponents/TableExample";
+import SaveQueryButton from "./queryComponents/SaveQueryButton";
 
 import { savedQueries, tableMetaData } from "./data/mockData";
 import customers from "./data/customer_edited.json";
 import products from "./data/products.json";
+import categories from "./data/categories.json";
 
 import './main.css';
+
 
 
 const MainContainer = () => {
@@ -70,6 +73,9 @@ const MainContainer = () => {
       case "products":
         setTableData(products);
         break;
+      case "categories": 
+        setTableData(categories);
+        break;
       default:
         setTableData(customers);
     }
@@ -112,18 +118,7 @@ const MainContainer = () => {
               >
                 Run Query
               </Button>
-              {/* Save Query Button */}
-              <Button
-                id="save-query-button"
-                className="text-transform-initial"
-                variant="contained"
-                color="primary"
-                disableElevation
-                size="small"
-                endIcon={<SaveIcon />}
-              >
-                Save Query
-              </Button>
+              <SaveQueryButton />
             </Grid>
             <br></br>
             {/* cards showcasing saved queries */}

@@ -67,6 +67,7 @@ export default function DownloadAsButton() {
             label={downloadAsDialogData.fieldData.label}
             type={downloadAsDialogData.fieldData.type}
             fullWidth
+            required
           />
         </DialogContent>
         <DialogActions>
