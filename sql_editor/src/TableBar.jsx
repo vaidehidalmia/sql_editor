@@ -1,11 +1,8 @@
-import React, { useState } from "react";
-import { makeStyles } from "@material-ui/core/styles";
+import React from "react";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
-import Button from "@material-ui/core/Button";
-import Typography from "@material-ui/core/Typography";
 
-import { otherTables, downloadAs, reports } from "./data/mockData";
+import { tableMetaData } from "./data/mockData";
 import SimpleMenu from "./SimpleMenu";
 import SaveTableButton from "./SaveTableButton";
 import DownloadAsButton from "./DownloadAsButton";
@@ -14,14 +11,7 @@ import JoinTableButton from "./JoinTableButton";
 
 import './main.css';
 
-const useStyles = makeStyles((theme) => ({
-  // menuButton: {
-  //   marginRight: theme.spacing(2),
-  // },
-}));
-
-const TableBar = () => {
-  const classes = useStyles();
+const TableBar = (props) => {
 
   return (
     <div className="flex-grow">
@@ -31,8 +21,8 @@ const TableBar = () => {
           <DownloadAsButton />
           <AddToReportButton />
           <div className="flex-grow" />
-          <JoinTableButton currentTable="Customers" />
-          <SimpleMenu list={otherTables} label="Other Tables" />
+          <JoinTableButton currentTable={props.tableId} />
+          <SimpleMenu list={Object.keys(tableMetaData)} label="Other Tables" handleItemClick={props.handleOtherTablesItemClick}/>
         </Toolbar>
       </AppBar>
     </div>

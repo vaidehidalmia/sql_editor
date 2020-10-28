@@ -10,6 +10,7 @@ import TextareaAutosize from "@material-ui/core/TextareaAutosize";
 import FilterBy from "./FilterBy";
 import GroupBy from "./GroupBy";
 import AggregateBy from "./AggregateBy";
+import ShowHideColumns from './ShowHideColumns';
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -45,7 +46,7 @@ function a11yProps(index) {
 }
 
 export default function QueryTabs(props) {
-  const { handleChipsAdd, handleChipsDelete, handleChipsDeleteAll, query} = props;
+  const { tableId, handleChipsAdd, handleChipsDelete, handleChipsDeleteAll, handleShowHideColumnsChange, query} = props;
   const [value, setValue] = useState(0);
 
   const handleChange = (event, newValue) => {
@@ -61,19 +62,26 @@ export default function QueryTabs(props) {
         </Tabs>
       </AppBar>
       <TabPanel value={value} index={0}>
+        {/* <ShowHideColumns 
+          tableId={tableId} 
+          handleShowHideColumnsChange={handleShowHideColumnsChange}
+        /> */}
         <FilterBy
+          tableId={tableId}
           chipList={query.filterBy}
           handleDelete={handleChipsDelete}
           handleDeleteAll={handleChipsDeleteAll}
           handleAdd={handleChipsAdd}
         />
         <GroupBy
+          tableId={tableId}
           chipList={query.groupBy}
           handleDelete={handleChipsDelete}
           handleDeleteAll={handleChipsDeleteAll}
           handleAdd={handleChipsAdd}
         />
         <AggregateBy
+          tableId={tableId}
           chipList={query.aggregateBy}
           handleDelete={handleChipsDelete}
           handleDeleteAll={handleChipsDeleteAll}

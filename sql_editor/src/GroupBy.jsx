@@ -4,7 +4,7 @@ import DropdownWithSearch from "./DropdownWithSearch";
 import IconButton from "@material-ui/core/IconButton";
 import DoneOutlinedIcon from "@material-ui/icons/DoneOutlined";
 
-import { top100Films } from "./data/mockData";
+import { tableMetaData } from "./data/mockData";
 import ChipsBox from "./ChipsBox";
 
 import './query.css';
@@ -12,13 +12,17 @@ import './query.css';
 const GroupBy = (props) => {
   const queryType = "groupBy";
   const [group, setGroup] = useState([null]);
+  const [errorText, setErrorText] = useState(null);
+
   const addGroup = async () => {
     if (group.includes(null)) {
+      setErrorText("All fields are required.");
       console.log("Error");
       return;
     }
     await props.handleAdd(group.join(" "), queryType);
     setGroup([null]);
+    setErrorText(null);
   };
 
   const onSelect = (value, index) => {
@@ -33,7 +37,7 @@ const GroupBy = (props) => {
       <div>
         <div style={{ display: "flex" }}>
           <DropdownWithSearch
-            list={top100Films}
+            list={tableMetaData[props.tableId]["columnList"]}
             label="Column List"
             onSelect={(value) => onSelect(value, 0)}
             value={group[0]}
@@ -47,6 +51,7 @@ const GroupBy = (props) => {
             <DoneOutlinedIcon fontSize="small" />
           </IconButton>
         </div>
+        {errorText && <div className="fontsize07 color-red">{errorText}</div>}
         <ChipsBox {...props} queryType={queryType} />
       </div>
     </div>

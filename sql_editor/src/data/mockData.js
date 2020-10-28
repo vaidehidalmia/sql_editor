@@ -1,9 +1,46 @@
 export const otherTables = [
-  "Categories",
-  "Customers",
-  "Employee Territories",
-  "Employees",
+  "customers",
+  "products",
 ];
+
+export const tableMetaData = {
+  customers: {
+    title: "Customers",
+    fileName: "customer_edited.json",
+    rows: 91,
+    columns: 10,
+    columnList: [
+      "customerID",
+      "companyName",
+      "contactName",
+      "contactTitle",
+      "street",
+      "city",
+      "region",
+      "postalCode",
+      "country",
+      "phone"
+    ]
+  },
+  products: {
+    title: "Products",
+    fileName: "products.json",
+    rows: 77,
+    columns: 10,
+    columnList: [
+      "productID",
+      "supplierID",
+      "categoryID",
+      "quantityPerUnit",
+      "unitPrice",
+      "unitsInStock",
+      "unitsOnOrder",
+      "reorderLevel",
+      "discontinued",
+      "name",
+    ]
+  }
+}
 
 export const reports = ["Report 1", "Report 2", "Report 3", "Report 4"];
 
@@ -14,12 +51,10 @@ export const mockChips = ["score > 50", "city = Delhi"];
 export const operators = ["=", ">=", ">", "<=", "<", "<>"];
 
 export const aggregateFunctions = [
-  "avg",
-  "sum",
-  "count",
-  "unique count",
-  "max",
-  "min",
+  "Avg",
+  "Sum",
+  "Count",
+  "Unique Count",
 ];
 
 export const joinType = ["inner", "left", "right", "full outer"];
@@ -128,23 +163,47 @@ export const top100Films = [
   "Monty Python and the Holy Grail",
 ];
 
-export const savedQueries = [
-  {
-    title: "Customer Country Count",
-    description: "Number of customers for each country.",
-    query: {
-      filterBy: ["country = India"],
-      groupBy: ["country"],
-      aggregateBy: ["count of country"],
+// export const savedQueries = [
+//   {
+//     title: "Customer Country Count",
+//     description: "Number of customers for each country.",
+//     query: {
+//       filterBy: ["country = India"],
+//       groupBy: ["country"],
+//       aggregateBy: ["count of country"],
+//     },
+//   },
+//   {
+//     title: "Customer Contact Title Count",
+//     description: "Number of customers for each contact title.",
+//     query: {
+//       filterBy: [],
+//       groupBy: ["contactTitle"],
+//       aggregateBy: ["count of contactTitle"],
+//     },
+//   },
+// ];
+
+export const savedQueries = {
+  "customers": [
+    {
+      title: "Customer Country Count",
+      description: "Number of customers for each country.",
+      query: {
+        filterBy: [],
+        groupBy: ["country", "contactTitle"],
+        aggregateBy: [],
+      },
     },
-  },
-  {
-    title: "Customer Contact Title Count",
-    description: "Number of customers for each contact title.",
-    query: {
-      filterBy: [],
-      groupBy: ["contactTitle"],
-      aggregateBy: ["count of contactTitle"],
+    {
+      title: "Customer Contact Title Count",
+      description: "Number of customers for each contact title.",
+      query: {
+        filterBy: [],
+        groupBy: ["contactTitle"],
+        aggregateBy: [],
+      },
     },
-  },
-];
+  ],
+  "products": [],
+}

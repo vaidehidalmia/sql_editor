@@ -4,7 +4,7 @@ import DropdownWithSearch from "./DropdownWithSearch";
 import IconButton from "@material-ui/core/IconButton";
 import DoneOutlinedIcon from "@material-ui/icons/DoneOutlined";
 
-import { top100Films, aggregateFunctions } from "./data/mockData";
+import { tableMetaData, aggregateFunctions } from "./data/mockData";
 import ChipsBox from "./ChipsBox";
 
 import './query.css';
@@ -12,13 +12,17 @@ import './query.css';
 const AggregateBy = (props) => {
   const queryType = "aggregateBy";
   const [aggregate, setAggregate] = useState([null, null]);
+  const [errorText, setErrorText] = useState(null);
+
   const addAggregate = async () => {
     if (aggregate.includes(null)) {
+      setErrorText("All fields are required.");
       console.log("Error");
       return;
     }
     await props.handleAdd(aggregate[1] + " of " + aggregate[0], queryType);
     setAggregate([null, null]);
+    setErrorText(null);
   };
 
   const onSelect = (value, index) => {
@@ -34,7 +38,7 @@ const AggregateBy = (props) => {
         <div className="fontsize07 margin2">Columns are aggregated by <span className="bold">count by default</span></div>
         <div style={{ display: "flex" }}>
           <DropdownWithSearch
-            list={top100Films}
+            list={tableMetaData[props.tableId]["columnList"]}
             label="Column List"
             onSelect={(value) => onSelect(value, 0)}
             value={aggregate[0]}
@@ -54,6 +58,7 @@ const AggregateBy = (props) => {
             <DoneOutlinedIcon fontSize="small" />
           </IconButton>
         </div>
+        {errorText && <div className="fontsize07 color-red">{errorText}</div>}
         <ChipsBox {...props} queryType={queryType} />
       </div>
     </div>

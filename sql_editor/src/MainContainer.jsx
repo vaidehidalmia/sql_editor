@@ -1,12 +1,8 @@
 import React, { useState } from "react";
 import Paper from "@material-ui/core/Paper";
 import Grid from "@material-ui/core/Grid";
-import Header from "./Header";
 
-import { mockChips, savedQueries } from "./data/mockData";
-import FilterBy from "./FilterBy";
-import GroupBy from "./GroupBy";
-import AggregateBy from "./AggregateBy";
+import { savedQueries, tableMetaData } from "./data/mockData";
 import ClickableCards from "./ClickableCards";
 import TableBar from "./TableBar";
 import TableExample from "./TableExample";
@@ -17,14 +13,26 @@ import PlayArrowIcon from '@material-ui/icons/PlayArrow';
 import SaveIcon from '@material-ui/icons/Save';
 import QueryTabs from "./QueryTabs";
 
+import customers from "./data/customer_edited.json";
+import products from "./data/products.json";
+
 
 const MainContainer = () => {
-  const [query, setQuery] = useState({
-    filterBy: mockChips,
-    groupBy: mockChips,
-    aggregateBy: mockChips,
-  });
+  const defaultQueryState = {
+    filterBy: [],
+    groupBy: [],
+    aggregateBy: [],
+    hideColumns: [],
+  };
+  const [query, setQuery] = useState(defaultQueryState);
+  const [submitQuery, setSubmitQuery] = useState(defaultQueryState);
+  const [tableId, setTableId] = useState("customers");
+  const [tableData, setTableData] = useState(customers);
 
+  const handleShowHideColumnsChange = (newList, listName="hideColumns") => {
+    setQuery({ ...query, [listName]: newList });
+  }
+  
   const handleChipsAdd = async (value, listName) => {
     const newList = [...query[listName], value];
     setQuery({ ...query, [listName]: newList });
@@ -44,6 +52,27 @@ const MainContainer = () => {
     setQuery(selectedQuery);
   };
 
+  const handleOtherTablesItemClick = (e) => {
+    const item = e.target.innerText;
+    setTableId(item);
+    setQuery(defaultQueryState);
+    switch(item) {
+      case "customers":
+        setTableData(customers);
+        break;
+      case "products":
+        console.log('here');
+        setTableData(products);
+        break;
+      default:
+        setTableData(customers);
+    }
+  }
+
+  const handleRunQuery = () => {
+    setSubmitQuery(query);
+  }
+
   return (
     <div className="flex-grow">
       <Grid container>
@@ -52,8 +81,10 @@ const MainContainer = () => {
         </Grid> */}
         <Grid item sm={12} md={4}>
           <Paper className="paper">
-            <QueryTabs 
+            <QueryTabs
+              tableId={tableId} 
               query={query}
+              handleShowHideColumnsChange={handleShowHideColumnsChange}
               handleChipsAdd={handleChipsAdd}
               handleChipsDelete={handleChipsDelete}
               handleChipsDeleteAll={handleChipsDeleteAll}/>
@@ -71,6 +102,7 @@ const MainContainer = () => {
                 disableElevation
                 size="small"
                 endIcon={<PlayArrowIcon />}
+                onClick={handleRunQuery}
               >
                 Run Query
               </Button>
@@ -89,22 +121,30 @@ const MainContainer = () => {
             <br></br>
             <div className="header bold">Saved Queries</div>
             <div>
-              <ClickableCards
-                cardList={savedQueries}
-                clickDataKey="query"
-                handleClick={handleSavedQueriesClick}
-              />
+              {
+                savedQueries[tableId].length > 0 ?
+                  <ClickableCards
+                    cardList={savedQueries[tableId]}
+                    clickDataKey="query"
+                    handleClick={handleSavedQueriesClick}
+                  /> :
+                  <div className="fontsize07 margin2">No queries saved for this table</div>
+              }
             </div>
           </Paper>
         </Grid>
         <Grid item sm={12} md={8}>
           {/* <Header /> */}
-          <div className="text-center header">
-            <h2 className="margin2">Customers</h2>
-            <div className="fontsize07"><span className="bold">100</span> rows <span className="bold">20</span> columns</div>
+          <div className="header" id="main-header">
+            <h1 className="margin2">SQL Editor</h1>
+            <div className="flex-grow"></div>
+            <div className="textalign-right">
+              <h3 className="margin2">{tableMetaData[tableId]["title"]}</h3>
+              <div className="fontsize07"><span className="bold">{tableMetaData[tableId]["rows"]}</span> rows <span className="bold">{tableMetaData[tableId]["columns"]}</span> columns</div>
+            </div>
           </div>
-          <TableBar />
-          <TableExample />
+          <TableBar tableId={tableId} handleOtherTablesItemClick={handleOtherTablesItemClick}/>
+          <TableExample tableData={tableData} tableQuery={submitQuery} />
           {/* <Paper className={classes.paper}>xs=12 sm=8</Paper> */}
         </Grid>
       </Grid>

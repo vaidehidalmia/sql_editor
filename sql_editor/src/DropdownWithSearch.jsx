@@ -3,11 +3,12 @@ import TextField from "@material-ui/core/TextField";
 import Autocomplete from "@material-ui/lab/Autocomplete";
 
 const DropdownWithSearch = (props) => {
-  const { label, value, list, onSelect, disableClearable, width } = props;
+  const { label, value, list, onSelect, disableClearable, width, freeSolo } = props;
   return (
     <Autocomplete
       className="dropdown-with-search"
       disableClearable={disableClearable}
+      freeSolo={freeSolo}
       options={list}
       style={{ width: width || 200, padding: "2px" }}
       renderInput={(params) => <TextField {...params} label={label} />}

@@ -8,13 +8,13 @@ import DialogContentText from "@material-ui/core/DialogContentText";
 import DialogTitle from "@material-ui/core/DialogTitle";
 import SimpleMenu from "./SimpleMenu";
 
-import { otherTables, top100Films, joinType } from "./data/mockData";
+import { otherTables, joinType, tableMetaData } from "./data/mockData";
 import DropdownWithSearch from "./DropdownWithSearch";
 
 export default function JoinTableButton(props) {
   const { currentTable } = props;
   const [open, setOpen] = useState(false);
-  const [joinTableName, setJoinTableName] = useState();
+  const [joinTableName, setJoinTableName] = useState("customers");
   const [joinTableDialogTitle, setJoinTableDialogTitle] = useState();
   const joinTableDialogData = {
     buttonTitle: "Join Table",
@@ -72,7 +72,7 @@ export default function JoinTableButton(props) {
           />
           <div style={{ display: "flex" }}>
             <DropdownWithSearch
-              list={top100Films}
+              list={tableMetaData[currentTable]["columnList"]}
               label={`${currentTable} Column List`}
               disableClearable
               onSelect={() => {}}
@@ -80,7 +80,7 @@ export default function JoinTableButton(props) {
               // value={aggregate[0]}
             />
             <DropdownWithSearch
-              list={top100Films}
+              list={tableMetaData[joinTableName]["columnList"]}
               label={`${joinTableName} Column List`}
               disableClearable
               onSelect={() => {}}
