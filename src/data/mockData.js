@@ -175,38 +175,8 @@ export const top100Films = [
   "Monty Python and the Holy Grail",
 ];
 
-// export const savedQueries = [
-//   {
-//     title: "Customer Country Count",
-//     description: "Number of customers for each country.",
-//     query: {
-//       filterBy: ["country = India"],
-//       groupBy: ["country"],
-//       aggregateBy: ["count of country"],
-//     },
-//   },
-//   {
-//     title: "Customer Contact Title Count",
-//     description: "Number of customers for each contact title.",
-//     query: {
-//       filterBy: [],
-//       groupBy: ["contactTitle"],
-//       aggregateBy: ["count of contactTitle"],
-//     },
-//   },
-// ];
-
 export const savedQueries = {
   "customers": [
-    {
-      title: "Customer Country Count",
-      description: "Number of customers for each country.",
-      query: {
-        filterBy: [],
-        groupBy: ["country", "contactTitle"],
-        aggregateBy: [],
-      },
-    },
     {
       title: "Customer Contact Title Count",
       description: "Number of customers for each contact title.",
@@ -217,6 +187,16 @@ export const savedQueries = {
       },
     },
   ],
-  "products": [],
+  "products": [
+    {
+      title: "Avg Unit Price for each Supplier ID",
+      description: "Grouped by supplierID, Aggregated by avg for UnitPrice",
+      query: {
+        filterBy: [],
+        groupBy: ["supplierID"],
+        aggregateBy: ["Avg of unitPrice"],
+      },
+    }
+  ],
   "categories": [],
 }

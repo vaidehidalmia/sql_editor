@@ -12,7 +12,7 @@ import { otherTables, joinType, tableMetaData } from "../../data/mockData";
 export default function JoinTableButton(props) {
   const { currentTable } = props;
   const [open, setOpen] = useState(false);
-  const [joinTableName, setJoinTableName] = useState("customers");
+  const [joinTableName, setJoinTableName] = useState("products");
   const [joinTableDialogTitle, setJoinTableDialogTitle] = useState();
   
   const joinTableDialogData = {

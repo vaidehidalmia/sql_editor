@@ -28,8 +28,8 @@ const MainContainer = () => {
   const [query, setQuery] = useState(defaultQueryState);
   // submit query is set when user clicks run query button
   const [submitQuery, setSubmitQuery] = useState(defaultQueryState);
-  const [tableId, setTableId] = useState("customers");
-  const [tableData, setTableData] = useState(customers);
+  const [tableId, setTableId] = useState("products");
+  const [tableData, setTableData] = useState(products);
 
   // handles user filter for columns to show
   const handleShowHideColumnsChange = (newList, listName="hideColumns") => {
@@ -73,11 +73,11 @@ const MainContainer = () => {
       case "products":
         setTableData(products);
         break;
-      case "categories": 
+      case "categories":
         setTableData(categories);
         break;
       default:
-        setTableData(customers);
+        setTableData(products);
     }
   }
 

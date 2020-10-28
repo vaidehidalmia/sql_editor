@@ -9,7 +9,6 @@
 		"unitsInStock" : 53,
 		"unitsOnOrder" : 0,
 		"reorderLevel" : 0,
-		"discontinued" : false,
 		"name" : "Chef Anton's Cajun Seasoning"
 	},
 	{
@@ -21,7 +20,6 @@
 		"unitsInStock" : 0,
 		"unitsOnOrder" : 0,
 		"reorderLevel" : 0,
-		"discontinued" : true,
 		"name" : "Chef Anton's Gumbo Mix"
 	},
 	{
@@ -33,7 +31,6 @@
 		"unitsInStock" : 120,
 		"unitsOnOrder" : 0,
 		"reorderLevel" : 25,
-		"discontinued" : false,
 		"name" : "Grandma's Boysenberry Spread"
 	},
 	{
@@ -45,7 +42,6 @@
 		"unitsInStock" : 15,
 		"unitsOnOrder" : 0,
 		"reorderLevel" : 10,
-		"discontinued" : false,
 		"name" : "Uncle Bob's Organic Dried Pears"
 	},
 	{
@@ -57,7 +53,6 @@
 		"unitsInStock" : 6,
 		"unitsOnOrder" : 0,
 		"reorderLevel" : 0,
-		"discontinued" : false,
 		"name" : "Northwoods Cranberry Sauce"
 	},
 	{
@@ -69,7 +64,6 @@
 		"unitsInStock" : 29,
 		"unitsOnOrder" : 0,
 		"reorderLevel" : 0,
-		"discontinued" : true,
 		"name" : "Mishi Kobe Niku"
 	},
 	{
@@ -81,7 +75,6 @@
 		"unitsInStock" : 31,
 		"unitsOnOrder" : 0,
 		"reorderLevel" : 0,
-		"discontinued" : false,
 		"name" : "Ikura"
 	},
 	{
@@ -93,7 +86,6 @@
 		"unitsInStock" : 17,
 		"unitsOnOrder" : 40,
 		"reorderLevel" : 25,
-		"discontinued" : false,
 		"name" : "Chang"
 	},
 	{
@@ -105,7 +97,6 @@
 		"unitsInStock" : 13,
 		"unitsOnOrder" : 70,
 		"reorderLevel" : 25,
-		"discontinued" : false,
 		"name" : "Aniseed Syrup"
 	},
 	{
@@ -117,7 +108,6 @@
 		"unitsInStock" : 22,
 		"unitsOnOrder" : 30,
 		"reorderLevel" : 30,
-		"discontinued" : false,
 		"name" : "Queso Cabrales"
 	},
 	{
@@ -129,7 +119,6 @@
 		"unitsInStock" : 86,
 		"unitsOnOrder" : 0,
 		"reorderLevel" : 0,
-		"discontinued" : false,
 		"name" : "Queso Manchego La Pastora"
 	},
 	{
@@ -141,7 +130,6 @@
 		"unitsInStock" : 24,
 		"unitsOnOrder" : 0,
 		"reorderLevel" : 5,
-		"discontinued" : false,
 		"name" : "Konbu"
 	},
 	{
@@ -153,7 +141,6 @@
 		"unitsInStock" : 35,
 		"unitsOnOrder" : 0,
 		"reorderLevel" : 0,
-		"discontinued" : false,
 		"name" : "Tofu"
 	},
 	{
@@ -165,7 +152,6 @@
 		"unitsInStock" : 39,
 		"unitsOnOrder" : 0,
 		"reorderLevel" : 5,
-		"discontinued" : false,
 		"name" : "Genen Shouyu"
 	},
 	{
@@ -177,7 +163,6 @@
 		"unitsInStock" : 39,
 		"unitsOnOrder" : 0,
 		"reorderLevel" : 10,
-		"discontinued" : false,
 		"name" : "Chai"
 	},
 	{
@@ -189,7 +174,6 @@
 		"unitsInStock" : 29,
 		"unitsOnOrder" : 0,
 		"reorderLevel" : 10,
-		"discontinued" : false,
 		"name" : "Pavlova"
 	},
 	{
@@ -201,7 +185,6 @@
 		"unitsInStock" : 0,
 		"unitsOnOrder" : 0,
 		"reorderLevel" : 0,
-		"discontinued" : true,
 		"name" : "Alice Mutton"
 	},
 	{
@@ -213,7 +196,6 @@
 		"unitsInStock" : 42,
 		"unitsOnOrder" : 0,
 		"reorderLevel" : 0,
-		"discontinued" : false,
 		"name" : "Carnarvon Tigers"
 	},
 	{
@@ -225,7 +207,6 @@
 		"unitsInStock" : 25,
 		"unitsOnOrder" : 0,
 		"reorderLevel" : 5,
-		"discontinued" : false,
 		"name" : "Teatime Chocolate Biscuits"
 	},
 	{
@@ -237,7 +218,6 @@
 		"unitsInStock" : 40,
 		"unitsOnOrder" : 0,
 		"reorderLevel" : 0,
-		"discontinued" : false,
 		"name" : "Sir Rodney's Marmalade"
 	},
 	{
@@ -249,7 +229,6 @@
 		"unitsInStock" : 20,
 		"unitsOnOrder" : 0,
 		"reorderLevel" : 0,
-		"discontinued" : true,
 		"name" : "Guaraná Fantástica"
 	},
 	{
@@ -261,7 +240,6 @@
 		"unitsInStock" : 76,
 		"unitsOnOrder" : 0,
 		"reorderLevel" : 30,
-		"discontinued" : false,
 		"name" : "NuNuCa Nuß-Nougat-Creme"
 	},
 	{
@@ -273,7 +251,6 @@
 		"unitsInStock" : 15,
 		"unitsOnOrder" : 0,
 		"reorderLevel" : 0,
-		"discontinued" : false,
 		"name" : "Gumbär Gummibärchen"
 	},
 	{
@@ -285,7 +262,6 @@
 		"unitsInStock" : 49,
 		"unitsOnOrder" : 0,
 		"reorderLevel" : 30,
-		"discontinued" : false,
 		"name" : "Schoggi Schokolade"
 	},
 	{
@@ -297,7 +273,6 @@
 		"unitsInStock" : 26,
 		"unitsOnOrder" : 0,
 		"reorderLevel" : 0,
-		"discontinued" : true,
 		"name" : "Rössle Sauerkraut"
 	},
 	{
@@ -309,7 +284,6 @@
 		"unitsInStock" : 0,
 		"unitsOnOrder" : 0,
 		"reorderLevel" : 0,
-		"discontinued" : true,
 		"name" : "Thüringer Rostbratwurst"
 	},
 	{
@@ -321,7 +295,6 @@
 		"unitsInStock" : 10,
 		"unitsOnOrder" : 0,
 		"reorderLevel" : 15,
-		"discontinued" : false,
 		"name" : "Nord-Ost Matjeshering"
 	},
 	{
@@ -333,7 +306,6 @@
 		"unitsInStock" : 0,
 		"unitsOnOrder" : 70,
 		"reorderLevel" : 20,
-		"discontinued" : false,
 		"name" : "Gorgonzola Telino"
 	},
 	{
@@ -345,7 +317,6 @@
 		"unitsInStock" : 9,
 		"unitsOnOrder" : 40,
 		"reorderLevel" : 25,
-		"discontinued" : false,
 		"name" : "Mascarpone Fabioli"
 	},
 	{
@@ -357,7 +328,6 @@
 		"unitsInStock" : 112,
 		"unitsOnOrder" : 0,
 		"reorderLevel" : 20,
-		"discontinued" : false,
 		"name" : "Geitost"
 	},
 	{
@@ -369,7 +339,6 @@
 		"unitsInStock" : 111,
 		"unitsOnOrder" : 0,
 		"reorderLevel" : 15,
-		"discontinued" : false,
 		"name" : "Sasquatch Ale"
 	},
 	{
@@ -381,7 +350,6 @@
 		"unitsInStock" : 104,
 		"unitsOnOrder" : 0,
 		"reorderLevel" : 25,
-		"discontinued" : false,
 		"name" : "Gustaf's Knäckebröd"
 	},
 	{
@@ -393,7 +361,6 @@
 		"unitsInStock" : 3,
 		"unitsOnOrder" : 40,
 		"reorderLevel" : 5,
-		"discontinued" : false,
 		"name" : "Sir Rodney's Scones"
 	},
 	{
@@ -405,7 +372,6 @@
 		"unitsInStock" : 20,
 		"unitsOnOrder" : 0,
 		"reorderLevel" : 15,
-		"discontinued" : false,
 		"name" : "Steeleye Stout"
 	},
 	{
@@ -417,7 +383,6 @@
 		"unitsInStock" : 61,
 		"unitsOnOrder" : 0,
 		"reorderLevel" : 25,
-		"discontinued" : false,
 		"name" : "Tunnbröd"
 	},
 	{
@@ -429,7 +394,6 @@
 		"unitsInStock" : 11,
 		"unitsOnOrder" : 50,
 		"reorderLevel" : 25,
-		"discontinued" : false,
 		"name" : "Gravad lax"
 	},
 	{
@@ -441,7 +405,6 @@
 		"unitsInStock" : 123,
 		"unitsOnOrder" : 0,
 		"reorderLevel" : 30,
-		"discontinued" : false,
 		"name" : "Boston Crab Meat"
 	},
 	{
@@ -453,7 +416,6 @@
 		"unitsInStock" : 17,
 		"unitsOnOrder" : 0,
 		"reorderLevel" : 15,
-		"discontinued" : false,
 		"name" : "Côte de Blaye"
 	},
 	{
@@ -465,7 +427,6 @@
 		"unitsInStock" : 112,
 		"unitsOnOrder" : 0,
 		"reorderLevel" : 20,
-		"discontinued" : false,
 		"name" : "Inlagd Sill"
 	},
 	{
@@ -477,7 +438,6 @@
 		"unitsInStock" : 85,
 		"unitsOnOrder" : 0,
 		"reorderLevel" : 10,
-		"discontinued" : false,
 		"name" : "Jack's New England Clam Chowder"
 	},
 	{
@@ -489,7 +449,6 @@
 		"unitsInStock" : 17,
 		"unitsOnOrder" : 10,
 		"reorderLevel" : 25,
-		"discontinued" : false,
 		"name" : "Ipoh Coffee"
 	},
 	{
@@ -501,7 +460,6 @@
 		"unitsInStock" : 26,
 		"unitsOnOrder" : 0,
 		"reorderLevel" : 0,
-		"discontinued" : true,
 		"name" : "Singaporean Hokkien Fried Mee"
 	},
 	{
@@ -513,7 +471,6 @@
 		"unitsInStock" : 95,
 		"unitsOnOrder" : 0,
 		"reorderLevel" : 0,
-		"discontinued" : false,
 		"name" : "Spegesild"
 	},
 	{
@@ -525,7 +482,6 @@
 		"unitsInStock" : 36,
 		"unitsOnOrder" : 0,
 		"reorderLevel" : 0,
-		"discontinued" : false,
 		"name" : "Zaanse koeken"
 	},
 	{
@@ -537,7 +493,6 @@
 		"unitsInStock" : 15,
 		"unitsOnOrder" : 70,
 		"reorderLevel" : 25,
-		"discontinued" : false,
 		"name" : "Chocolade"
 	},
 	{
@@ -549,7 +504,6 @@
 		"unitsInStock" : 10,
 		"unitsOnOrder" : 60,
 		"reorderLevel" : 15,
-		"discontinued" : false,
 		"name" : "Maxilaku"
 	},
 	{
@@ -561,7 +515,6 @@
 		"unitsInStock" : 65,
 		"unitsOnOrder" : 0,
 		"reorderLevel" : 30,
-		"discontinued" : false,
 		"name" : "Valkoinen suklaa"
 	},
 	{
@@ -573,7 +526,6 @@
 		"unitsInStock" : 20,
 		"unitsOnOrder" : 0,
 		"reorderLevel" : 10,
-		"discontinued" : false,
 		"name" : "Manjimup Dried Apples"
 	},
 	{
@@ -585,7 +537,6 @@
 		"unitsInStock" : 38,
 		"unitsOnOrder" : 0,
 		"reorderLevel" : 25,
-		"discontinued" : false,
 		"name" : "Filo Mix"
 	},
 	{
@@ -597,7 +548,6 @@
 		"unitsInStock" : 0,
 		"unitsOnOrder" : 0,
 		"reorderLevel" : 0,
-		"discontinued" : true,
 		"name" : "Perth Pasties"
 	},
 	{
@@ -609,7 +559,6 @@
 		"unitsInStock" : 21,
 		"unitsOnOrder" : 0,
 		"reorderLevel" : 10,
-		"discontinued" : false,
 		"name" : "Tourtière"
 	},
 	{
@@ -621,7 +570,6 @@
 		"unitsInStock" : 115,
 		"unitsOnOrder" : 0,
 		"reorderLevel" : 20,
-		"discontinued" : false,
 		"name" : "Pâté chinois"
 	},
 	{
@@ -633,7 +581,6 @@
 		"unitsInStock" : 21,
 		"unitsOnOrder" : 10,
 		"reorderLevel" : 30,
-		"discontinued" : false,
 		"name" : "Gnocchi di nonna Alice"
 	},
 	{
@@ -645,7 +592,6 @@
 		"unitsInStock" : 36,
 		"unitsOnOrder" : 0,
 		"reorderLevel" : 20,
-		"discontinued" : false,
 		"name" : "Ravioli Angelo"
 	},
 	{
@@ -657,7 +603,6 @@
 		"unitsInStock" : 27,
 		"unitsOnOrder" : 0,
 		"reorderLevel" : 15,
-		"discontinued" : false,
 		"name" : "Gula Malacca"
 	},
 	{
@@ -669,7 +614,6 @@
 		"unitsInStock" : 69,
 		"unitsOnOrder" : 0,
 		"reorderLevel" : 5,
-		"discontinued" : false,
 		"name" : "Chartreuse verte"
 	},
 	{
@@ -681,7 +625,6 @@
 		"unitsInStock" : 79,
 		"unitsOnOrder" : 0,
 		"reorderLevel" : 0,
-		"discontinued" : false,
 		"name" : "Raclette Courdavault"
 	},
 	{
@@ -693,7 +636,6 @@
 		"unitsInStock" : 19,
 		"unitsOnOrder" : 0,
 		"reorderLevel" : 0,
-		"discontinued" : false,
 		"name" : "Camembert Pierrot"
 	},
 	{
@@ -705,7 +647,6 @@
 		"unitsInStock" : 5,
 		"unitsOnOrder" : 70,
 		"reorderLevel" : 15,
-		"discontinued" : false,
 		"name" : "Rogede sild"
 	},
 	{
@@ -717,7 +658,6 @@
 		"unitsInStock" : 62,
 		"unitsOnOrder" : 0,
 		"reorderLevel" : 20,
-		"discontinued" : false,
 		"name" : "Escargots de Bourgogne"
 	},
 	{
@@ -729,7 +669,6 @@
 		"unitsInStock" : 113,
 		"unitsOnOrder" : 0,
 		"reorderLevel" : 25,
-		"discontinued" : false,
 		"name" : "Sirop d'érable"
 	},
 	{
@@ -741,7 +680,6 @@
 		"unitsInStock" : 17,
 		"unitsOnOrder" : 0,
 		"reorderLevel" : 0,
-		"discontinued" : false,
 		"name" : "Tarte au sucre"
 	},
 	{
@@ -753,7 +691,6 @@
 		"unitsInStock" : 24,
 		"unitsOnOrder" : 0,
 		"reorderLevel" : 5,
-		"discontinued" : false,
 		"name" : "Vegie-spread"
 	},
 	{
@@ -765,7 +702,6 @@
 		"unitsInStock" : 22,
 		"unitsOnOrder" : 80,
 		"reorderLevel" : 30,
-		"discontinued" : false,
 		"name" : "Wimmers gute Semmelknödel"
 	},
 	{
@@ -777,7 +713,6 @@
 		"unitsInStock" : 76,
 		"unitsOnOrder" : 0,
 		"reorderLevel" : 0,
-		"discontinued" : false,
 		"name" : "Louisiana Fiery Hot Pepper Sauce"
 	},
 	{
@@ -789,7 +724,6 @@
 		"unitsInStock" : 4,
 		"unitsOnOrder" : 100,
 		"reorderLevel" : 20,
-		"discontinued" : false,
 		"name" : "Louisiana Hot Spiced Okra"
 	},
 	{
@@ -801,7 +735,6 @@
 		"unitsInStock" : 52,
 		"unitsOnOrder" : 0,
 		"reorderLevel" : 10,
-		"discontinued" : false,
 		"name" : "Laughing Lumberjack Lager"
 	},
 	{
@@ -813,7 +746,6 @@
 		"unitsInStock" : 6,
 		"unitsOnOrder" : 10,
 		"reorderLevel" : 15,
-		"discontinued" : false,
 		"name" : "Scottish Longbreads"
 	},
 	{
@@ -825,7 +757,6 @@
 		"unitsInStock" : 15,
 		"unitsOnOrder" : 10,
 		"reorderLevel" : 30,
-		"discontinued" : false,
 		"name" : "Outback Lager"
 	},
 	{
@@ -837,7 +768,6 @@
 		"unitsInStock" : 26,
 		"unitsOnOrder" : 0,
 		"reorderLevel" : 0,
-		"discontinued" : false,
 		"name" : "Flotemysost"
 	},
 	{
@@ -849,7 +779,6 @@
 		"unitsInStock" : 101,
 		"unitsOnOrder" : 0,
 		"reorderLevel" : 5,
-		"discontinued" : false,
 		"name" : "Röd Kaviar"
 	},
 	{
@@ -861,7 +790,6 @@
 		"unitsInStock" : 4,
 		"unitsOnOrder" : 20,
 		"reorderLevel" : 5,
-		"discontinued" : false,
 		"name" : "Longlife Tofu"
 	},
 	{
@@ -873,7 +801,6 @@
 		"unitsInStock" : 125,
 		"unitsOnOrder" : 0,
 		"reorderLevel" : 25,
-		"discontinued" : false,
 		"name" : "Rhönbräu Klosterbier"
 	},
 	{
@@ -885,7 +812,6 @@
 		"unitsInStock" : 57,
 		"unitsOnOrder" : 0,
 		"reorderLevel" : 20,
-		"discontinued" : false,
 		"name" : "Lakkalikööri"
 	},
 	{
@@ -897,7 +823,6 @@
 		"unitsInStock" : 26,
 		"unitsOnOrder" : 0,
 		"reorderLevel" : 15,
-		"discontinued" : false,
 		"name" : "Gudbrandsdalsost"
 	},
 	{
@@ -909,7 +834,6 @@
 		"unitsInStock" : 14,
 		"unitsOnOrder" : 0,
 		"reorderLevel" : 0,
-		"discontinued" : false,
 		"name" : "Mozzarella di Giovanni"
 	},
 	{
@@ -921,7 +845,6 @@
 		"unitsInStock" : 32,
 		"unitsOnOrder" : 0,
 		"reorderLevel" : 15,
-		"discontinued" : false,
 		"name" : "Original Frankfurter grüne Soße"
 	}
 ]
