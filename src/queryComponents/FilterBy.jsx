@@ -1,34 +1,39 @@
 import React, { useState } from "react";
-import DropdownWithSearch from "./DropdownWithSearch";
 
-import IconButton from "@material-ui/core/IconButton";
+import { IconButton } from "@material-ui/core";
 import DoneOutlinedIcon from "@material-ui/icons/DoneOutlined";
 
-import { top100Films, tableMetaData, operators } from "./data/mockData";
-import ChipsBox from "./ChipsBox";
+import ChipsBox from "../genericComponents/ChipsBox";
+import DropdownWithSearch from "../genericComponents/DropdownWithSearch";
+
+import { top100Films, tableMetaData, operators } from "../data/mockData";
 
 import './query.css';
 
+// user can select column, operation, value to filter rows
+// this is the WHERE clause in SQL
 const FilterBy = (props) => {
+  const { handleAdd, tableId } = props;
   const queryType = "filterBy";
   const [filter, setFilter] = useState([null, null, null]);
   const [errorText, setErrorText] = useState(null);
+  
+  // handles submit filter
   const addFilter = async () => {
     if (filter.includes(null)) {
-      setErrorText("All fields are required.")
-      console.log("Error");
+      setErrorText("All fields are required.");
       return;
     }
-    await props.handleAdd(filter.join(" "), queryType);
+    await handleAdd(filter.join(" "), queryType);
     setFilter([null, null, null]);
     setErrorText(null);
   };
 
+  // handles change in dropdown option
   const onSelect = (value, index) => {
     let newList = [...filter];
     newList[index] = value;
     setFilter(newList);
-    console.log(value);
   };
 
   return (
@@ -37,7 +42,7 @@ const FilterBy = (props) => {
       <div>
         <div style={{ display: "flex" }}>
           <DropdownWithSearch
-            list={tableMetaData[props.tableId]["columnList"]}
+            list={tableMetaData[tableId]["columnList"]}
             label="Column List"
             onSelect={(value) => onSelect(value, 0)}
             value={filter[0]}

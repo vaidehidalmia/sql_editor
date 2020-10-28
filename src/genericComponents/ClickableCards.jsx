@@ -1,9 +1,6 @@
 import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
-import Card from "@material-ui/core/Card";
-import CardContent from "@material-ui/core/CardContent";
-import Typography from "@material-ui/core/Typography";
-import ButtonBase from "@material-ui/core/ButtonBase";
+import { Card, CardContent, Typography, ButtonBase } from "@material-ui/core";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -19,6 +16,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
+// List of cards which are clickable and show title and description
 const ClickableCards = (props) => {
   const classes = useStyles();
   const { cardList, handleClick, clickDataKey } = props;

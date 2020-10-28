@@ -1,30 +1,35 @@
 import React, { useState } from "react";
-import DropdownWithSearch from "./DropdownWithSearch";
 
-import IconButton from "@material-ui/core/IconButton";
+import { IconButton } from "@material-ui/core";
 import DoneOutlinedIcon from "@material-ui/icons/DoneOutlined";
 
-import { tableMetaData, aggregateFunctions } from "./data/mockData";
-import ChipsBox from "./ChipsBox";
+import DropdownWithSearch from "../genericComponents/DropdownWithSearch";
+import ChipsBox from "../genericComponents/ChipsBox";
+
+import { tableMetaData, aggregateFunctions } from "../data/mockData";
 
 import './query.css';
 
+// user can select column, aggregate fn to view rows
+// this is the aggregate functions in SQL
 const AggregateBy = (props) => {
+  const { handleAdd, tableId } = props;
   const queryType = "aggregateBy";
   const [aggregate, setAggregate] = useState([null, null]);
   const [errorText, setErrorText] = useState(null);
 
+  // handles submit aggregate
   const addAggregate = async () => {
     if (aggregate.includes(null)) {
       setErrorText("All fields are required.");
-      console.log("Error");
       return;
     }
-    await props.handleAdd(aggregate[1] + " of " + aggregate[0], queryType);
+    await handleAdd(aggregate[1] + " of " + aggregate[0], queryType);
     setAggregate([null, null]);
     setErrorText(null);
   };
 
+  // handles change in dropdown option
   const onSelect = (value, index) => {
     let newList = [...aggregate];
     newList[index] = value;
@@ -38,7 +43,7 @@ const AggregateBy = (props) => {
         <div className="fontsize07 margin2">Columns are aggregated by <span className="bold">count by default</span></div>
         <div style={{ display: "flex" }}>
           <DropdownWithSearch
-            list={tableMetaData[props.tableId]["columnList"]}
+            list={tableMetaData[tableId]["columnList"]}
             label="Column List"
             onSelect={(value) => onSelect(value, 0)}
             value={aggregate[0]}

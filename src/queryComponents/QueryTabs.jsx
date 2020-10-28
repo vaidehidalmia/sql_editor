@@ -1,18 +1,13 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-import AppBar from '@material-ui/core/AppBar';
-import Tabs from '@material-ui/core/Tabs';
-import Tab from '@material-ui/core/Tab';
-import Typography from '@material-ui/core/Typography';
-import Box from '@material-ui/core/Box';
-import TextareaAutosize from "@material-ui/core/TextareaAutosize";
+import { AppBar, Tabs, Tab, Typography, Box, TextareaAutosize } from '@material-ui/core';
 
 import FilterBy from "./FilterBy";
 import GroupBy from "./GroupBy";
 import AggregateBy from "./AggregateBy";
 import ShowHideColumns from './ShowHideColumns';
 
-function TabPanel(props) {
+const TabPanel = (props) => {
   const { children, value, index, ...other } = props;
 
   return (
@@ -38,17 +33,26 @@ TabPanel.propTypes = {
   value: PropTypes.any.isRequired,
 };
 
-function a11yProps(index) {
+const a11yProps = (index) => {
   return {
     id: `tab-${index}`,
     'aria-controls': `tabpanel-${index}`,
   };
 }
 
-export default function QueryTabs(props) {
-  const { tableId, handleChipsAdd, handleChipsDelete, handleChipsDeleteAll, handleShowHideColumnsChange, query} = props;
+const QueryTabs = (props) => {
+  const { 
+    tableId, 
+    handleChipsAdd, 
+    handleChipsDelete, 
+    handleChipsDeleteAll, 
+    handleShowHideColumnsChange, 
+    query
+  } = props;
+  
   const [value, setValue] = useState(0);
 
+  // handle change in tab
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
@@ -61,6 +65,7 @@ export default function QueryTabs(props) {
           <Tab label="Custom SQL" {...a11yProps(1)} />
         </Tabs>
       </AppBar>
+      {/* Tab panel for easy filter */}
       <TabPanel value={value} index={0}>
         {/* <ShowHideColumns 
           tableId={tableId} 
@@ -88,9 +93,12 @@ export default function QueryTabs(props) {
           handleAdd={handleChipsAdd}
         />
       </TabPanel>
+      {/* Tab panel for custom SQL */}
       <TabPanel value={value} index={1}>
-      <TextareaAutosize className="width-fillavailable" aria-label="sql-query" rowsMin={10} rowsMax={50} placeholder="Write your SQL query here." />
+        <TextareaAutosize className="width-fillavailable" aria-label="sql-query" rowsMin={10} rowsMax={50} placeholder="Write your SQL query here." />
       </TabPanel>
     </div>
   );
 }
+
+export default QueryTabs;

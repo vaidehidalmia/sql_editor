@@ -1,21 +1,20 @@
 import React, { useState } from "react";
-import Button from "@material-ui/core/Button";
-import TextField from "@material-ui/core/TextField";
-import Dialog from "@material-ui/core/Dialog";
-import DialogActions from "@material-ui/core/DialogActions";
-import DialogContent from "@material-ui/core/DialogContent";
-import DialogContentText from "@material-ui/core/DialogContentText";
-import DialogTitle from "@material-ui/core/DialogTitle";
-import SimpleMenu from "./SimpleMenu";
+import { Button, TextField, Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle} from "@material-ui/core";
 
-import { otherTables, joinType, tableMetaData } from "./data/mockData";
-import DropdownWithSearch from "./DropdownWithSearch";
+import SimpleMenu from "../../genericComponents/SimpleMenu";
+import DropdownWithSearch from "../../genericComponents/DropdownWithSearch";
 
+import { otherTables, joinType, tableMetaData } from "../../data/mockData";
+
+
+// user can select which table they want to join the current table with
+// dropdown menu which opens a dialog on menu item click
 export default function JoinTableButton(props) {
   const { currentTable } = props;
   const [open, setOpen] = useState(false);
   const [joinTableName, setJoinTableName] = useState("customers");
   const [joinTableDialogTitle, setJoinTableDialogTitle] = useState();
+  
   const joinTableDialogData = {
     buttonTitle: "Join Table",
     joinDescription:
@@ -38,6 +37,7 @@ export default function JoinTableButton(props) {
     setOpen(false);
   };
 
+  // handles menu item click
   const handleItemClick = (e) => {
     handleDialogOpen();
     const item = e.target.innerText;

@@ -1,7 +1,8 @@
 import React from "react";
-import TextField from "@material-ui/core/TextField";
+import {TextField} from "@material-ui/core";
 import Autocomplete from "@material-ui/lab/Autocomplete";
 
+// dropdown list which can be searched
 const DropdownWithSearch = (props) => {
   const { label, value, list, onSelect, disableClearable, width, freeSolo } = props;
   return (

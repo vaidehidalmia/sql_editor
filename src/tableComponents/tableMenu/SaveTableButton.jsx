@@ -1,14 +1,11 @@
 import React from "react";
-import Button from "@material-ui/core/Button";
-import TextField from "@material-ui/core/TextField";
-import Dialog from "@material-ui/core/Dialog";
-import DialogActions from "@material-ui/core/DialogActions";
-import DialogContent from "@material-ui/core/DialogContent";
-import DialogContentText from "@material-ui/core/DialogContentText";
-import DialogTitle from "@material-ui/core/DialogTitle";
+import { Button, TextField, Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle} from "@material-ui/core";
 
+// user can input the table name they want to save the table as
+// opens a dialog on button click
 export default function SaveTableButton() {
   const [open, setOpen] = React.useState(false);
+  
   const saveDialogData = {
     buttonTitle: "Save",
     title: "Save Table",
@@ -22,22 +19,22 @@ export default function SaveTableButton() {
     },
   };
 
-  const handleClickOpen = () => {
+  const handleDialogOpen = () => {
     setOpen(true);
   };
 
-  const handleClose = () => {
+  const handleDialogClose = () => {
     setOpen(false);
   };
 
   return (
     <div>
-      <Button color="inherit" onClick={handleClickOpen}>
+      <Button color="inherit" onClick={handleDialogOpen}>
         {saveDialogData.buttonTitle}
       </Button>
       <Dialog
         open={open}
-        onClose={handleClose}
+        onClose={handleDialogClose}
         aria-labelledby="form-dialog-title"
       >
         <DialogTitle id="form-dialog-title">{saveDialogData.title}</DialogTitle>
@@ -53,10 +50,10 @@ export default function SaveTableButton() {
           />
         </DialogContent>
         <DialogActions>
-          <Button onClick={handleClose} color="primary">
+          <Button onClick={handleDialogClose} color="primary">
             Cancel
           </Button>
-          <Button onClick={handleClose} color="primary">
+          <Button onClick={handleDialogClose} color="primary">
             {saveDialogData.submitButtonText}
           </Button>
         </DialogActions>

@@ -1,8 +1,7 @@
 import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
-import Chip from "@material-ui/core/Chip";
+import { Chip, Button } from "@material-ui/core";
 import ClearOutlinedIcon from "@material-ui/icons/ClearOutlined";
-import Button from "@material-ui/core/Button";
 
 const useStyles = makeStyles((theme) => ({
   chipsBox: {
@@ -33,20 +32,23 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
+// Chips container with functionality to add, delete, and clear all chips
 const ChipsBox = (props) => {
+  const { queryType, chipList } = props;
   const classes = useStyles();
 
   const handleDelete = (text) => {
-    props.handleDelete(text, props.queryType);
+    props.handleDelete(text, queryType);
   };
 
   const handleDeleteAll = () => {
-    props.handleDeleteAll(props.queryType);
+    props.handleDeleteAll(queryType);
   };
 
   return (
     <div className={classes.chipsBox}>
-      {props.chipList.length > 0 && (
+      {/* button to clear all chips */}
+      {chipList.length > 0 && (
         <Button
           className={classes.clearButton}
           color="secondary"
@@ -55,8 +57,9 @@ const ChipsBox = (props) => {
           Clear All
         </Button>
       )}
+      {/* div that contains all the chips */}
       <div className={classes.chipsContainer}>
-        {props.chipList.map((text) => (
+        {chipList.map((text) => (
           <Chip
             key={text}
             className={classes.chip}

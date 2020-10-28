@@ -11,8 +11,8 @@ import TableContainer from "@material-ui/core/TableContainer";
 import TableHead from "@material-ui/core/TableHead";
 import TableRow from "@material-ui/core/TableRow";
 import Paper from "@material-ui/core/Paper";
-
 import IconButton from "@material-ui/core/IconButton";
+
 import KeyboardArrowDownIcon from "@material-ui/icons/KeyboardArrowDown";
 import KeyboardArrowUpIcon from "@material-ui/icons/KeyboardArrowUp";
 import ArrowUpwardIcon from '@material-ui/icons/ArrowUpward';
@@ -81,7 +81,7 @@ function CustomTable({ columns, data, controlledState = {} }) {
             ...state,
             ...controlledState,
           }),
-          [state, controlledState]
+          [state]
         )
       }
     },
@@ -105,7 +105,6 @@ function CustomTable({ columns, data, controlledState = {} }) {
           aria-label="a dense table"
           {...getTableProps()}
         >
-          {/* <table {...getTableProps()}> */}
           <TableHead>
             {headerGroups.map((headerGroup) => (
               <TableRow {...headerGroup.getHeaderGroupProps()}>
@@ -114,16 +113,8 @@ function CustomTable({ columns, data, controlledState = {} }) {
                     className={`${classes.headerCell} ${
                       column.isGrouped ? classes.groupedByRow : null
                     }`}
-                    // className={column.isGrouped ? classes.groupedByRow : null}
-                    // {column.isGrouped && className=classes.groupedByRow}
                     {...column.getHeaderProps(column.getSortByToggleProps())}
                   >
-                    {/* {column.canGroupBy ? (
-                      // If the column can be grouped, let's add a toggle
-                      <span {...column.getGroupByToggleProps()}>
-                        {column.isGrouped ? "🛑 " : "👊 "}
-                      </span>
-                    ) : null} */}
                     <span>
                       <span>
                         {column.isSorted
@@ -187,9 +178,12 @@ function CustomTable({ columns, data, controlledState = {} }) {
       </TableContainer>
       <br />
       {/* <div>Showing the first 100 results of {rows.length} rows</div> */}
-      <pre>
+      
+      {/* useful to debug table */}
+      {/* <pre>
         <code>{JSON.stringify(state, null, 2)}</code>
-      </pre>
+      </pre> */}
+      
       {/* <div>
         <div>
           <IndeterminateCheckbox {...getToggleHideAllColumnsProps()} /> Toggle
@@ -211,12 +205,11 @@ function CustomTable({ columns, data, controlledState = {} }) {
 
 function TableExample(props) {
   const { tableData, tableQuery } = props;
-  console.log(tableQuery);
   let aggregateBy = [];
   let controlledState = {
     "groupBy": [...tableQuery.groupBy], 
     "filters": transformFilteredData(tableQuery.filterBy),
-    "hiddenColumns": [...tableQuery.hideColumns],
+    // "hiddenColumns": [...tableQuery.hideColumns],
   };
 
   // console.log(transformFilteredData(tableQuery.filterBy));

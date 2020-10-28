@@ -1,30 +1,35 @@
 import React, { useState } from "react";
-import DropdownWithSearch from "./DropdownWithSearch";
 
-import IconButton from "@material-ui/core/IconButton";
+import { IconButton } from "@material-ui/core";
 import DoneOutlinedIcon from "@material-ui/icons/DoneOutlined";
 
-import { tableMetaData } from "./data/mockData";
-import ChipsBox from "./ChipsBox";
+import ChipsBox from "../genericComponents/ChipsBox";
+import DropdownWithSearch from "../genericComponents/DropdownWithSearch";
+
+import { tableMetaData } from "../data/mockData";
 
 import './query.css';
 
+// user can select column group rows
+// this is the GROUP BY clause in SQL
 const GroupBy = (props) => {
+  const { handleAdd, tableId } = props;
   const queryType = "groupBy";
   const [group, setGroup] = useState([null]);
   const [errorText, setErrorText] = useState(null);
 
+  // handles submit groupby
   const addGroup = async () => {
     if (group.includes(null)) {
       setErrorText("All fields are required.");
-      console.log("Error");
       return;
     }
-    await props.handleAdd(group.join(" "), queryType);
+    await handleAdd(group.join(" "), queryType);
     setGroup([null]);
     setErrorText(null);
   };
 
+  // handles change in dropdown option
   const onSelect = (value, index) => {
     let newList = [...group];
     newList[index] = value;
@@ -37,7 +42,7 @@ const GroupBy = (props) => {
       <div>
         <div style={{ display: "flex" }}>
           <DropdownWithSearch
-            list={tableMetaData[props.tableId]["columnList"]}
+            list={tableMetaData[tableId]["columnList"]}
             label="Column List"
             onSelect={(value) => onSelect(value, 0)}
             value={group[0]}

@@ -1,15 +1,12 @@
 import React, { useState } from "react";
-import Button from "@material-ui/core/Button";
-import TextField from "@material-ui/core/TextField";
-import Dialog from "@material-ui/core/Dialog";
-import DialogActions from "@material-ui/core/DialogActions";
-import DialogContent from "@material-ui/core/DialogContent";
-import DialogContentText from "@material-ui/core/DialogContentText";
-import DialogTitle from "@material-ui/core/DialogTitle";
-import SimpleMenu from "./SimpleMenu";
+import { Button, TextField, Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle} from "@material-ui/core";
 
-import { downloadAs } from "./data/mockData";
+import SimpleMenu from "../../genericComponents/SimpleMenu";
 
+import { downloadAs } from "../../data/mockData";
+
+// user can select what format to download the table in, able to mention download filename
+// dropdown menu which opens a dialog on menu item click
 export default function DownloadAsButton() {
   const [open, setOpen] = useState(false);
   const [downloadAsDialogTitle, setDownloadAsDialogTitle] = useState();
@@ -17,6 +14,7 @@ export default function DownloadAsButton() {
     downloadAsDialogDescription,
     setDownloadAsDialogDescription,
   ] = useState();
+
   const downloadAsDialogData = {
     buttonTitle: "Download As",
     submitButtonText: "Download",
@@ -35,6 +33,7 @@ export default function DownloadAsButton() {
     setOpen(false);
   };
 
+  // handles menu item click
   const handleItemClick = (e) => {
     handleDialogOpen();
     const item = e.target.innerText;

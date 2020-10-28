@@ -1,15 +1,14 @@
 import React from "react";
-import AppBar from "@material-ui/core/AppBar";
-import Toolbar from "@material-ui/core/Toolbar";
+import {AppBar, Toolbar} from "@material-ui/core";
 
-import { tableMetaData } from "./data/mockData";
-import SimpleMenu from "./SimpleMenu";
+import SimpleMenu from "../../genericComponents/SimpleMenu";
 import SaveTableButton from "./SaveTableButton";
 import DownloadAsButton from "./DownloadAsButton";
 import AddToReportButton from "./AddToReportButton";
 import JoinTableButton from "./JoinTableButton";
 
-import './main.css';
+import { tableMetaData } from "../../data/mockData";
+
 
 const TableBar = (props) => {
 
